@@ -1,0 +1,49 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>html 종합 실습 문제</title>
+  </head>
+  <body>
+    <form>
+      <label for="ename">고객명 :</label>
+      <input type="text" name="ename" id="ename" />
+    </form>
+    <br />
+    <form>
+      <label for="phone">전화번호 :</label>
+      <input type="text" name="phone" id="phone" />
+    </form>
+    <br />
+    <form>
+      <label for="email">E-mail :</label>
+      <input type="text" name="email" id="email" />
+    </form>
+    <br />
+    <form>
+      <fieldset>
+        <legend>피자 사이즈</legend>
+        <label for="small"><input type="radio" name="pizza" />Small</label><br />
+        <label for="medium"><input type="radio" name="pizza" />Medium</label><br />
+        <label for="large"><input type="radio" name="pizza" />Large</label>
+      </fieldset>
+    </form>
+    <br />
+    <form>
+      <fieldset>
+        <legend>토핑 선택</legend>
+        <label for="베이컨"><input type="checkbox" name="topping" /> 베이컨</label><br />
+        <label for="치즈"><input type="checkbox" name="topping" />치즈</label><br />
+        <label for="양파"><input type="checkbox" name="topping" />양파</label><br />
+        <label for="버섯"><input type="checkbox" name="topping" />버섯</label>
+      </fieldset>
+    </form>
+    <br>
+    <label for="datetime">희망 배송 시간 : </label><input type="time" id="time" /><br /><br />
+
+    <label for="shipping">배송 시 요청사항: &nbsp;</label><textarea name="shipping" cols="20" rows="3"></textarea><br /><br />
+    <button type="submit">주문하기</button>
+  </body>
+</html>

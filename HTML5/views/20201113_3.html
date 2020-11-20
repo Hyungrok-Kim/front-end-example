@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            text-align: center;
+           
+        }
+
+        thead{
+            background:orangered;
+            color: snow;
+        }
+        
+        tbody{
+            background:peru;
+        }
+        tfoot{
+            background:yellow;
+            color:red;
+        }
+        button{
+            background:green;
+            color:snow;
+            border: solid 1px snow;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<table border="1">
+    <caption>kh 리조트 대관 안내</caption>
+    <thead>
+        <tr>
+            <th>층</th>
+            <th>객실명</th>
+            <th>정원</th>
+            <th>가격</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="6">2층</td>
+            <td rowspan="2">사랑방</td>
+            <td rowspan="2">4명</td>
+            <td>평일 : 300,000원 <button>예약하기</button></td>
+        </tr>
+        <tr>
+            <td>주말 : 500,000원 <button>예약하기</button></td>
+        </tr>
+        <tr>
+            <td rowspan="2">행복방</td>
+            <td rowspan="2">6명</td>
+            <td>평일 : 400,000원 <button>예약하기</button></td>
+        </tr>
+        <tr>
+            <td>주말 : 600,000원 <button>예약하기</button></td>
+        </tr>
+        <tr>
+            <td rowspan="2">코딩방</td>
+            <td rowspan="2">무제한</td>
+            <td>평일 : 800,000원 <button>예약하기</button></td>
+        </tr>
+        <tr>
+            <td>주말 : 990,000원 <button>예약하기</button></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">코딩방 예약시 커피 무제한 무료 증정!!</td>
+        </tr>
+    </tfoot>
+</table>
+</body>
+</html>

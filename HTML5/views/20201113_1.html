@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:focus{
+            background:orangered;
+        }
+
+        input[type='checkbox']:checked {
+        width: 20px;
+        height: 20px;
+      }
+
+      textarea{
+          background:black;
+          color:white;
+      }
+
+      button:hover{
+          background:yellowgreen;
+          cursor:pointer;
+      }
+
+
+    </style>
+</head>
+<body>
+    <h2>
+        회원가입
+    </h2>
+    <form action="" method="post">
+    <fieldset>
+        <legend>필수 입력 정보</legend>
+        <div style="width:300px;">
+        <label for="userid">아이디 : </label><input type="text" id="userid" maxlength=15 placeholder="아이디를 입력하세요" autofocus/><br />
+        <label for="userpwd">비밀번호 : </label><input type="password" maxlength=15 placeholder="비밀번호를 입력하세요" id="userpwd"/><br>
+        <label for="checkpwd">비밀번호확인 : </label><input type="password" maxlength=15 placeholder="비밀번호를 다시 입력하세요" id="checkpwd" /><br />
+        <label for="username">이름 : </label><input type="text" id="username" maxlength=5 placeholder="이름을 입력하세요" /><br />
+        <label for="email">이메일 : </label><input type="email" id="email" placeholder="이메일을 입력하세요"/><br />
+        <label for="phone">휴대전화번호 : </label><input type="text" id="phone" placeholder="휴대폰 번호를 입력하세요" /><br />
+        <label for="homepage">홈페이지 : </label><input type="url" id="homepage" value="http://" /><br />
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>추가 입력 정보</legend>
+        <label for="국적">국적 :</label>
+        <select id="국적" size="2" multiple >
+            <option value="한국">한국</option>
+            <option value="중국">중국</option>
+            <option value="일본">일본</option>
+            <option value="기타">기타</option>
+        </select><br><br>
+        <label for="date"> 생년월일 : </label> <input type="date" id="date" /><br /><br>
+        <label for="gender">성별 :</label> &nbsp;  &nbsp; 
+        <span id="gender">
+        <input type="radio" name="gender" value="M" id="M" checked /><label for="M">남성</label>  &nbsp; 
+        <input type="radio" name="gender" value="F" id="F"/><label for="F"> 여성</label>
+        </span><br><br>
+        <label for="hobby">취미:</label> &nbsp;  &nbsp; 
+        <span id="hobby">
+        <input type="checkbox" name="hobby" id="낚시" value="낚시" checked />
+        <label for="낚시">낚시</label>
+        <input type="checkbox" name="hobby" id="게임" value="게임" />
+        <label for="게임">게임</label>
+        <input type="checkbox" name="hobby" id="요리" value="요리" />
+        <label for="요리">요리</label>
+        </span><br><br>
+        <div>
+        <label for="xmrdltkgkd" style="vertical-align: 70px;">특이사항:</label>
+        <textarea name="xmrdltkgkd" cols="30" rows="10" style="resize: none">
+        </textarea>
+        </div>
+    </fieldset><br>
+    <button type="reset">취소하기</button>
+    <button type="submit">가입하기</button>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+</body>
+</html>

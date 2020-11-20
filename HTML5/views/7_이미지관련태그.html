@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>이미지 관련 태그</title>
+  </head>
+  <body>
+    <h1>이미지 관련 태그</h1>
+    <!-- 
+        이미지를 삽입하기 위해서는 <img>태그를 사용한다.
+        이미지 파일의 경로를 src라는 속성의 속성값으로 등록하여 
+        이미지를 화면에 표시하며, 이미지<img>태그는 단일 태그 형식으로
+        사용한다. 
+     -->
+    <img src="../resources/sample/image/river1.PNG" />
+    <p>
+      src 속성으로 이미지의 경로를 설정하여 화면에 이미지를 표시할 수 있다.
+      <br />
+      <b>절대 경로 : </b><br />
+      C:/, D:/ 와 같은 보조 기억장치 시작부터 해당 파일이 위치한 경로를 모두 서술하는 것 ex) D:~/~/~/~/river1.PNG
+      <br />
+      <b>상대 경로 : </b>
+      현재 파일의 기준으로 다른 파일의 위치를 찾아가는 것<br />
+      ./ or 바로 파일명으로 시작 : 같은 폴더 안의 위치에서 시작한다.<br />
+      ../ : 현재 파일이 위치한 폴더 바깥으로 나가서 찾는다. <br />
+      ex) <br />
+      '0_firstPage.html' : 같은 폴더 안에 있음. <br />
+      '../index.html' : 현재 폴더를 나가서 찾겠다! <br />
+      '../../../img.jpg' : 현재폴더에서 나가고 나가고 나가서 찾는다. 총 3번나가서
+    </p>
+
+    <h3>자주 쓰이는 속성</h3>
+    <h4>alt 속성</h4>
+    <img src="../resources/image/superman.PNG" alt="슈퍼맨 이미지입니다." />
+    <p>
+      사진의 경로가 잘못되었거나, 이미지 파일이 훼손되었을 경우, <br />
+      혹은 화면 낭독기(스크린 리더)를 통해 사진을 표현할 때 <br />
+      대체할 설명 문구를 작성하는 속성이다.
+    </p>
+
+    <h4>width와 height 속성</h4>
+    <p>
+      사진의 가로, 세로 길이를 설정하는 속성, <br />
+      화면의 크기에 따라 고정 길이와 가변 길이로 설정할 수 있다.
+    </p>
+
+    <h4>고정길이 : 화면의 크기가 변해도 사진의 크기는 변하지 않는다.</h4>
+    <!-- img[src="../resources/sample/image/flower.png" width ="" height =""]*5 -->
+    <img src="../resources/sample/image/flower1.png" alt="" width="100px" height="100px" />
+    <img src="../resources/sample/image/flower2.png" alt="" width="100px" height="100px" />
+    <img src="../resources/sample/image/flower3.png" alt="" width="100px" height="100px" />
+    <img src="../resources/sample/image/flower4.png" alt="" width="100px" height="100px" />
+    <img src="../resources/sample/image/flower5.png" alt="" width="100px" height="100px" />
+
+    <h4>가변길이 : 화면의 크기에 따라 사진의 크기도 변한다.</h4>
+    <img src="../resources/sample/image/flower1.png" alt="" width="15%" height="150px" />
+    <img src="../resources/sample/image/flower2.png" alt="" width="15%" height="150px" />
+    <img src="../resources/sample/image/flower3.png" alt="" width="15%" height="150px" />
+    <img src="../resources/sample/image/flower4.png" alt="" width="15%" height="150px" />
+    <img src="../resources/sample/image/flower5.png" alt="" width="15%" height="150px" />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <a href="../index.html">메인으로 돌아가기</a>
+
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

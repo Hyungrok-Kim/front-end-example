@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>시멘틱 태그</title>
+    <style>
+      header {
+        border: 3px solid white;
+        background: black;
+        color: white;
+      }
+      section {
+        border: 3px dashed black;
+      }
+      article {
+        border: 5px solid white;
+        background: lightgreen;
+      }
+
+      aside {
+        border: 3px solid red;
+        background: ivory;
+        color: orangered;
+      }
+
+      footer {
+        background: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    시멘틱(Semantic) 태그 :
+      웹 접근성 및 웹 문서의 구조화를 위해 
+      기존의 div 형태로 나누었던 영역들을
+      별도의 태그 형식으로 구분지어 정의하는 태그 
+      <div id="header"> ... </div>
+      ==>
+      <header> : 머릿글 영역 
+      <nav>    : 주 메뉴 
+      <section>: 주제 관련 메인 영역 
+      <article>: 주제 내의 세부 내용 
+      <aside>  : 주제와 관련성이 적은, 부가적인 내용들(광고, 서브메뉴)
+      <footer> : 웹 문서의 저작권, 사이트 운영기관 정보를 담은 바닥글 영역
+ -->
+
+    <header>
+      <!-- 웹 문서의 머릿글 -->
+      <h1>김형록's Homepage</h1>
+
+      <nav>
+        <!-- 웹 문서의 주 메뉴 -->
+        <ul>
+          <li><a href="0_firstPage.html">첫페이지</a></li>
+          <li>공지사항</li>
+          <li>게시판</li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <!-- 해당 페이지의 주 내용 -->
+      주제와 관련된 내용입니다.
+      <article>
+        <!-- 주 내용 중 세부 내용들-->
+        <p>첫번째 내용입니다.</p>
+      </article>
+      <article>
+        <p>두번째 내용입니다.</p>
+      </article>
+      <article>
+        <p>세번째 내용입니다.</p>
+      </article>
+    </section>
+    <aside>
+      <!-- 주제와 관련이 적거나, 사이드에 표시할 내용들  -->
+      <p>
+        머리가 고민이시라구요? 아침마다 한 줌씩 빠진다구요? 그럼 이 약을 드셔 보세요. 한 줌을 깔끔하게, 매끈하게 한 방에 빼드립니다. 빛나는 두피를 위한 자존심 여러분의 조그마한 고민을 단번에 깔끔히
+        해결해 드립니다. - 두발삭발(제모제) -
+      </p>
+    </aside>
+
+    <footer>
+      <!-- 해당 웹 페이지의 저자, 저작권, 소유주 정보를 명시하는 영역 -->
+      Copyright by 352_kimhyungrok reserved. <br />
+      본 문서는 352 강의장 수업을 위한 페이지 입니다.
+    </footer>
+
+    <br />
+    <br />
+    <br />
+
+    <a href="../index.html">메인으로 돌아가기</a>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

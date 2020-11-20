@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>폼 관련 태그</title>
+  </head>
+  <body>
+    <!--
+        form 태그 :
+          HTML 웹 문서에서 사용자가 입력하는 특정 양식의 데이터를
+          지정한 페이지로 전송하는 역할을 수행하는 태그들을 말한다.
+        
+        form 안의 input 태그들로 양식을 받을 형태를 구성하고,
+        해당 input 태그들로 사용자의 입력을 받아준다.
+
+        ** 속성 **
+        action : 작성한 데이터를 보낼 페이지 (주소)
+        method : 전달할 전송 방식을 GET / POST 와 같은
+                 HTTP 통신의 전송 방식을 지정할 때 사용한다.
+    -->
+    <h1>폼(form)관련 태그</h1>
+    <form>
+      <label for="search">검색 : </label>
+      <input type="text" size="20" name="search" id="search" />
+      &nbsp;
+      <input type="submit" value="검색 버튼" />
+    </form>
+
+    <p>
+      input 태그의 값을 사용자에게서 입력받아 서버로 전달할 때에는 <br />
+      반드시 input type 속성의 'submit' 속성값을 사용하여야 한다. <br />
+      submit을 하지 않으면 데이터가 넘어가지않음 반드시 submit으로 넘겨야 함.
+    </p>
+
+    <hr />
+
+    <form>
+      <fieldset>
+        <legend>필드셋 제목 1</legend>
+        <label for="input1">입력 1</label> <input type="text" id="input1" /><br />
+        <!-- (label[for="input"]{입력 : } + input:text+br)*3 -->
+        <label for="input2">입력 2</label>
+        <input type="text" id="input2" />
+        <br />
+        <label for="input3">입력 3</label>
+        <input type="text" id="input3" />
+        <br />
+        <label for="input4">입력 4</label>
+        <input type="text" id="input4" />
+        <br />
+      </fieldset>
+    </form>
+
+    <br />
+
+    <fieldset>
+      <legend>필드셋 제목 2</legend>
+      <label for="input-1">입력 1 : </label><input type="text" id="input-1" /><br />
+      <label for="input-2">입력 2 : </label><input type="text" id="input-2" /><br />
+      <label for="input-3">입력 3 : </label><input type="text" id="input-3" /><br />
+      <label for="input-4">입력 4 : </label><input type="text" id="input-4" /><br />
+    </fieldset>
+
+    <hr />
+
+    <br />
+
+    <h3>문자 관련 input 태그</h3>
+    <form>
+      <h3>type = text</h3>
+      <input type="text" name="userid" required />
+      <p>한 줄짜리 문자열 작성 타입</p>
+
+      <h3>type = password</h3>
+      <input type="password" name="userpwd" />
+      <p>비밀번호 작성용 타입</p>
+
+      <h3>type = search</h3>
+      <!-- 권장 안함. 브라우저에 따라서 구현되는 내용이 다름-->
+      <input type="search" name="search" placeholder="여기에 검색어를 쓰세요" />
+      <p>검색 박스 전용 타입</p>
+
+      <h3>type = submit / reset</h3>
+      <input type="submit" value="제출하기" /> &nbsp;
+      <input type="reset" value="초기화하기" />
+    </form>
+
+    <hr />
+
+    <form>
+      <h3>숫자 관련 input 태그</h3>
+      <h3>type = number</h3>
+      <input type="number" max="100" min="10" step="2" value="1" />
+      <p>입력창에 스핀 형태로 표시되나, 웹 브라우저에 따라서 표현되는 모양이 다를 수 있다.</p>
+
+      <h3>type = range</h3>
+      <input type="range" max="10" min="0" step="2" />
+      <p>슬라이드 바 형태로 숫자 지정이 가능하다.</p>
+    </form>
+
+    <hr />
+
+    <form>
+      <h3>날짜 관련 input 태그</h3>
+      <h3>type = date | month | week | time | datetime | datetime-local</h3>
+      <label for="date"> date : </label> <input type="date" id="date" /><br />
+      <label for="month"> month : </label> <input type="month" id="month" /><br />
+      <label for="week"> week : </label> <input type="week" id="week" /><br />
+      <label for="time"> time : </label> <input type="time" id="time" /><br />
+      <label for="datetime"> datetime : </label> <input type="datetime" id="datetime" /><br />
+      <input type="datetime-local" id="datetime-local" />
+    </form>
+
+    <hr />
+
+    <form>
+      <h3>라디오 버튼 & 체크박스 버튼</h3>
+
+      <h3>라디오 버튼</h3>
+
+      성별 : <input type="radio" name="gender" value="M" checked /> 남성 &nbsp; <input type="radio" name="gender" value="F" /> 여성
+      <p>
+        라디오 버튼은 name 속성의 값을 동일하게 맞춰야 하나의 그룹으로 인식하여<br />
+        복수 선택을 막을 수 있다.
+      </p>
+
+      <h3>체크박스 버튼</h3>
+      <!-- value는 데이터베이스에 전달할 때 보내는 값 -->
+      선호 장르 :
+      <input type="checkbox" name="genre" id="호러" value="호러" checked />
+      <label for="호러">호러</label>
+      &nbsp;&nbsp;&nbsp;
+      <input type="checkbox" name="genre" id="로코" value="로코" />
+      <label for="로코">로맨틱코미디</label>
+      <input type="checkbox" name="genre" id="SF" value="SF" />
+      <label for="SF">SF</label>
+    </form>
+
+    <h3>기타 input 태그들</h3>
+    <form>
+      <h3>type = color</h3>
+      색상 선택 : <input type="color" /> <br />
+
+      <h3>type = file</h3>
+      파일 선택 : <input type="file" /> <br />
+
+      <h3>type = hidden</h3>
+      안보임 : <input type="hidden" value="회원번호:1" />
+
+      <h3>버튼 태그들 input:button / button</h3>
+      <h4>type = button</h4>
+      일반 버튼 : <input type="button" value="버튼" />
+
+      <h4>button 태그</h4>
+      <!-- 기존의 input 버튼보다 다양하게 활용하기 위해 제공하는 별도의 태그 
+            ** button 태그의 경우 type을 명시하지 않으면 기본값은 'submit'이다!-->
+      <button type="submit">전송 버튼</button>
+      <button type="reset">취소 버튼</button>
+      <button type="button">
+        <img src="../resources/sample/image/city1.PNG" width="50px" height="50px" />
+      </button>
+    </form>
+
+    <hr />
+
+    <h3>기타 입력 양식 태그들</h3>
+    <form>
+      <h3>select 태그와 option 태그</h3>
+
+      이메일 작성 : <input type="text" size="7" />
+      <select name="useremail">
+        <option value="gmail">@gmail.com</option>
+        <option value="naver">@naver.com</option>
+        <option value="nate">@nate.com</option>
+        <option value="daum">@daum.net</option>
+        <option value="lycos">@lycos.com</option>
+        <option value="paran">@paran.com</option>
+        <option value="dreamwiz">@dreamwiz.com</option>
+        <option value="yahoo">@yahoo.com</option>
+        <option value="empas">@empas.com</option>
+        <option value="etc" selected>-- 직접 입력 --</option>
+      </select>
+    </form>
+
+    <br /><br />
+    <hr />
+
+    <h3>select 다중 선택</h3>
+    <p>
+      select 태그에 size 속성을 통해 여러 개의 값을 보여줄 수도 있고,<br />
+      multiple 속성으로 값을 여러 개 선택할 수도 있다.
+    </p>
+
+    <select size="3" multiple>
+      <option value="차카니">차카니</option>
+      <option value="쫀쫀이">쫀쫀이</option>
+      <option value="아폴로">아폴로</option>
+      <option value="꾀돌이">꾀돌이</option>
+      <option value="신호등">신호등</option>
+      <option value="피돈">피돈</option>
+      <option value="맥주사탕">맥주사탕</option>
+    </select>
+
+    <br /><br />
+    <h3>datalist 태그</h3>
+    선호 음식 : <input type="text" list="foods" />
+    <datalist id="foods">
+      <option value="5000">짜장면</option>
+      <option value="8000">짬뽕</option>
+      <option value="25000">쟁반짜장</option>
+      <option value="15000">탕수육</option>
+      <option value="8000">볶음밥</option>
+    </datalist>
+
+    <br />
+
+    <h3>textarea 태그</h3>
+    <textarea name="content" cols="30" rows="10"> </textarea>
+    <br />
+    <textarea name="content2" cols="40" rows="5" style="resize: none">
+      이 곳에 값을 입력하세요.
+    </textarea>
+    <br />
+    <br />
+    <br />
+    <a href="../index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">    
+    <title>목록 관련 태그</title>
+</head>
+<body>
+    <!-- ul (unordered list) : 순서가 없는 목록 -->
+    <h1>순서가 없는 목록</h1>
+    <h3>제일 좋아하는 악기</h3>
+    <ul>  <!-- emmet 표기법 : ul>li*4 -->
+        <li>첼로</li>
+        <li>해금</li>
+        <li>바이올린</li>
+        <li>피아노</li>
+    </ul>
+    
+    <p>
+        앞에 나타난 기호는 마치 총알 구멍처럼 생겼다고 하여,
+        블릿(bullet) 기호라고 부른다.
+    </p>
+
+    <ul> 음식 분류
+        <li>육류
+            <ul>
+                <li>닭고기</li>
+                <li>오리고기</li>
+                <li>소고기</li>
+            </ul>
+        </li>
+        <li>해류
+            <ul>
+                <li>광어</li>
+                <li>연어</li>
+                <li>돔</li>
+            </ul>
+        </li>
+        <li>공류
+            <ul>
+                <li>꿩</li>
+                <li>타조</li>
+                <li>날치</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+    <!-- ol (ordered list) : 순서가 있는 목록 -->
+    <h1>순서가 있는 목록</h1>
+    <h3>라면 끓이는 순서</h3>
+    <ol>
+        <li>물을 넣는다.</li>
+        <li>스프를 넣는다.</li>
+        <li>끓인다.</li>
+    </ol>
+
+    <hr>
+
+    <h3>ol + ul</h3>
+
+    <ul>
+        <li>청소하는 법
+            <ol>20 ~ 100만원
+                <li>세스코를 부른다.</li>
+                <li>벌레를 잡아달라고 한다.</li>
+                <li>뒷 정리를 부탁한다.</li>
+            </ol>
+        </li>
+    </ul>
+
+    <hr>
+    <h3>ol 속성 : i, a, 1, reverse </h3>
+    <!-- I, II, III, IV, V, VI, VII, VIII, IX, X, XI
+    a, b, c, d, ...
+     -->
+     <h4>영 소문자로 표기하기</h4>
+     <!-- ol[type='a']>li*4 -->
+     <ol type="a">
+         <li>Apple</li>
+         <li>Banana</li>
+         <li>Cherry</li>
+         <li>Durian</li>
+     </ol>
+
+     <h4>로마자로 표기하기</h4>
+     <ol type="i">
+         <li>Java</li>
+         <li>Oracle</li>
+         <li>HTML5</li>
+         <li>CSS3</li>
+     </ol>
+     <ol reversed="reversed">   <!-- ol[revered=revered]>li*4 --> 
+         <li>초아</li>
+         <li>김혜수</li>
+         <li>아이유</li>
+         <li>공유</li>
+     </ol>
+     <!-- br*3 -->
+     <br>
+     <br>
+     <br>
+     <!-- a[href="../index.html"]{메인으로 돌아가기} -->
+     <a href="../index.html">메인으로 돌아가기</a>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>표 관련 태그</title>
+    <style>
+        /* 스타일 태그  */
+        /* 웹 문서의 각 요소들의 색상, 모양들을 정의하는 태그 */
+        /* style은 css이기 때문에 html5랑 주석 태그가 다르다. */
+        thead{
+            background : black;
+            color :snow;
+        }
+        tbody{
+            background : hotpink;
+
+        }
+        tfoot{
+            background : blue;
+            color : lightgoldenrodyellow;  
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        table 태그 : 웹 문서 상의 표를 나타내는 태그
+        <table>
+            <tr> </tr> : 표의 한 행을 의미
+            <th> </th> : 표의 첫 행 
+            <td> </td> : 행 안의 각 내용(컬럼)
+        </table>
+     -->
+
+     <h1>기본 테이블 만들기 </h1>
+     <table border ="1">
+         <!-- caption은 테이블 주제, 설명을 달 때의 태그 -->
+         <caption><b>웹 브라우저의 종류</b></caption>
+         <tr>
+             <th>웹 브라우저 명</th>
+             <th>제조사</th>
+             <th>홈페이지</th>
+         </tr>
+         <tr>
+             <td>구글 크롬</td>
+             <td>Google</td>
+             <td>http://www.google.com</td>
+         </tr>
+         <tr>
+             <td>파이어폭스</td>
+             <td>Mozilla</td>
+             <td>http://www.mozilla.org</td>
+         </tr>
+         <tr>
+             <td>사파리</td>
+             <td>Apple</td>
+             <td>http://www.apple.com</td>
+         </tr>
+         <tr>
+             <td>엣지</td>
+             <td>MS</td>
+             <td>http://www.microsoft.com</td>
+         </tr>
+     </table>
+
+     <h1>표의 행과 열 합치기</h1>
+     <!-- 
+         <td> 태그의 rowspan / colspan 속성을 활용하여 테이블의 각 칸을 합칠 수 있다!
+             rowspan : 세로 병합
+             colspan : 가로 병합 
+             ** 주의사항 **
+             합하려는 열이나 행의 갯수가
+             테이블의 형태와 맞아 떨어져야 한다.
+      -->
+
+
+      <h3>회원 정보</h3>
+
+      <table border="1">
+          <tr>
+            <td width = "150px" rowspan="2">사진</td>
+            <td width = "80px">이름</td>
+            <td width = "200px"></td>
+          </tr>
+          <tr>
+              <td>연락처</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>주소</td>
+              <td colspan="2"></td>
+          </tr>   
+          <tr>
+              <td height="200px">자기소개</td>
+              <td colspan="2"></td>
+          </tr>     
+      </table>
+
+      <hr>
+
+      <h1>테이블 구조 확인하기</h1>
+      <table border="1">
+          <!-- 
+              <thead> : 테이블의 머릿글 영역
+              <tbody> : 테이블의 몸통 영역
+              <tfoot> : 테이블의 바닥 영역
+           -->
+
+           <thead>
+               <tr>
+                   <th>이름</th>
+                   <th>취미</th>
+                   <th>장기</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>김진호</td>
+                   <td>자전거타기</td>
+                   <td>간</td>
+                </tr>
+                <tr>
+                    <td>이창한</td>
+                    <td>작곡하기</td>
+                    <td>성대</td>
+                </tr>
+                <tr>
+                    <td>박재현</td>
+                    <td>요리</td>
+                    <td>장</td>
+                </tr>
+                <tr>
+                    <td>최진성</td>
+                    <td>헬스</td>
+                    <td>이두박근</td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"> 총 인원 : 4명 </td>
+                    </tr>
+                </tfoot>
+           </tbody>
+        
+      </table>
+
+      <br>
+      <br>
+      <br>
+      
+      <a href="../index.html">메인페이지로 돌아가기</a>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+</body>
+</html>
