@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 선택자 2</title>
+    <style>
+      /* 속성 선택자 */
+      /* 속성이 name을 가지고 있는 얘들 */
+      div[name] {
+        background: yellow;
+      }
+
+      div[name='name2'] {
+        background: lightcoral;
+      }
+      /* name에는 여러가지 속성값을 넣을 수 있는데 그 중
+      name1을 가지고 있는 얘들 */
+      div[name~='name1'] {
+        background: lightskyblue;
+      }
+
+      div[name^='n'] {
+        background: gold;
+      }
+      div[class$='s'] {
+        background: tomato;
+      }
+      div[class*='-'] {
+        background: lightcyan;
+      }
+
+      /* 자손 선택자 */
+      #test1 > h4 {
+        background: gold;
+      }
+
+      #test1 > #testul > li {
+        background: lightblue;
+      }
+
+      /* 후손 선택자 */
+      #test1 h4 {
+        /* 후손 선택자를 사용하면 자손도 선택된다. */
+        background: purple;
+      }
+      #test1 li {
+        color: green;
+      }
+
+      /* 동위 선택자 */
+      #div-testA {
+        background: greenyellow;
+      }
+
+      #div-testB + div {
+        /* 이전요소는 선택되지 않는다. */
+        background: chocolate;
+      }
+
+      #div-testA ~ div {
+        background: lightsalmon;
+      }
+
+      /* 반응 선택자 */
+      /* 최초 상태 */
+      #active-test,
+      #hover-test {
+        width: 300px;
+        height: 300px;
+        background: lightgrey;
+        margin: 10px;
+      }
+
+      /* 반응 적용 시 */
+      #active-test:active {
+        background: navy;
+        color: ivory;
+      }
+
+      #hover-test:hover {
+        background: plum;
+        color: indianred;
+      }
+
+      /* 상태 선택자 */
+      input[type='checkbox']:checked {
+        width: 20px;
+        height: 20px;
+      }
+
+      #userid:focus {
+        border: 2px solid green;
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 선택자 2</h1>
+
+    <h2>속성 선택자</h2>
+    <p>
+      기본 선택자 뒤에 [ ]를 붙여 <br />
+      특정 속성과 해당 속성의 값을 가지는 <br />
+      태그를 선택하는 선택자
+    </p>
+    <pre>
+        선택자[속성=속성값] { . . . } 
+        = : 해당 속성값을 가질 때
+        ~= : 특정 단어를 속성값으로 가질 때 (띄어쓰기로 구분)
+        |= : 특정 단어를 속성값으로 가질 때 ("" 로 구분)
+        ^= : 속성값이 특정 단어로 시작할 때 (데이터베이스의 like과 비슷)
+        $= : 속성값이 특정 단어로 끝날 때
+        *= : 속성값이 특정 단어를 포함할 때 
+
+        <!-- div[name="name" class="div-class"]{div}*5 -->
+    </pre>
+    <div name="name1" class="div-class">div1</div>
+    <div name="name2" class="div-class">div2</div>
+    <div name="name3" class="div-class">div3</div>
+    <div name="name4" class="div-class">div4</div>
+    <div name="name5" class="div-class">div5</div>
+
+    <hr />
+
+    <h2>자손 선택자와 후손 선택자</h2>
+    <p>
+      자손 선택자 : 해당하는 선택자 바로 아래에 있는 요소들 <br />
+      후손 선택자 : 하위의 모든 요소
+    </p>
+    <pre>
+        자손 : 부모선택자>자손선택자 { . . . }
+        후손 : 부모선택자 후손선택자 { . . . }
+    </pre>
+
+    <div id="test1">
+      <!--부모 요소-->
+      <h4>나는 자손 홍길동입니다.</h4>
+      <!-- 자손 요소 -->
+      <h4>나도 자손 홍길서입니다.</h4>
+      <ul id="testul">
+        나는 자손 리스트입니다.
+        <!-- li*3 -->
+        <li>나는 ul의 자손이자, div의 후손입니다.</li>
+        <!--후손 요소-->
+        <li>나는 ul의 자손이자, div의 후손입니다.</li>
+        <li>나는 ul의 자손이자, div의 후손입니다.</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <h2>동위 선택자</h2>
+    <p>동급 관계, 이웃한 요소를 선택하는 선택자</p>
+    <pre>
+        선택자A+선택자B { . . . } : 바로 뒤의 요소 B를 선택
+        선택자A~선택자B { . . . } : ( 1 ~ 10 ) A뒤부터 B까지모든 요소를 선택할 때 사용
+        
+    </pre>
+    <!-- div[id="div-test"]{DIV 동위요소} * 5 -->
+    <div id="div-testA">DIV 동위 요소 A</div>
+    <div id="div-testB">DIV 동위 요소 B</div>
+    <div id="div-testC">DIV 동위 요소 C</div>
+    <div id="div-testD">DIV 동위 요소 D</div>
+    <div id="div-testE">DIV 동위 요소 E</div>
+
+    <hr />
+
+    <h2>반응 선택자</h2>
+    <p>
+      사용자의 움직임(마우스 클릭 등)을 감지하여 <br />
+      해당 동작에 따라 스타일을 적용하는 선택자
+    </p>
+    <pre>
+        선택자:active { . . . } : 사용자가 마우스로 클릭했을 때
+        선택자:hover { . . . } : 마우스가 해당 요소 위로 올라갔을 때
+        
+    </pre>
+
+    <div id="active-test">Active 스타일 테스트 (클릭 효과)</div>
+    <div id="hover-test">Hover 스타일 테스트 (마우스 접근)</div>
+    <br />
+
+    <h2>상태 선택자</h2>
+    <p>input 입력 양식에 따라 변화하는 스타일 선택자</p>
+    <pre>
+        input:checked { . . . } : 체크 상태에 따라 스타일 적용
+        input:focus { . . . } : 클릭하여 입력창 활성화 되었을 때 스타일 적용
+
+    </pre>
+
+    <h3>체크 박스</h3>
+
+    <input type="checkbox" name="fruits" /> 수박 <br />
+    <input type="checkbox" name="fruits" /> 사과 <br />
+    <input type="checkbox" name="fruits" /> 배 <br />
+
+    <br />
+
+    <h3>focus 테스트</h3>
+
+    아이디 : <input type="text" id="userid" placeholder="ID를 입력하세요" />
+    <br />
+
+    <br />
+
+    <br />
+    <br />
+
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

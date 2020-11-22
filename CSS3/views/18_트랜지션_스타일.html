@@ -1,0 +1,105 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>트랜지션 스타일</title>
+    <style>
+      #trans1 {
+        /* 최초 상태 */
+        width: 100px;
+        height: 100px;
+        background: black;
+        border: 2px solid blue;
+        transition-duration: 2s;
+        cursor: pointer; /* 마우스 클릭 손 모양 */
+      }
+
+      #trans1:hover {
+        background: gold;
+        border: 1px dashed red;
+      }
+
+      #trans2 {
+        width: 100px;
+        height: 100px;
+        background: lightcoral;
+        border: 1px solid black;
+        transition-property: background-color, transform, width, height;
+        transition-duration: 3s, 2s, 1s, 3s;
+      }
+
+      #trans2:hover {
+        background: orangered;
+        border: 1px solid black;
+        width: 300px;
+        height: 200px;
+        transform: rotateY(180deg);
+      }
+
+      #trans3 {
+        width: 150px;
+        height: 150px;
+        background: salmon;
+        border: 1px solid black;
+        transition-duration: 3s;
+        transition-timing-function: ease; /*ease-in | ease-out*/
+      }
+
+      #trans3:hover {
+        background: lawngreen;
+        transform: rotateZ(180deg);
+      }
+
+      #trans4 {
+        width: 150px;
+        height: 150px;
+        background: green;
+        border: 1px solid black;
+        transition-duration: 5s;
+        transition-delay: 2s;
+      }
+
+      #trans4:hover {
+        width: 75px;
+        height: 75px;
+        background: lightgreen;
+        transform: rotateX(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>트랜지션 스타일</h1>
+    <p>시간에 따라 각각 다른 모양을 구성하는 속성</p>
+
+    <h3>트랜지션 진행 시간 설정하기</h3>
+    <div id="trans1"></div>
+
+    <h3>트랜지션 영역별 시간 설정하기</h3>
+    <div id="trans2"></div>
+
+    <h3>트랜지션 속도 키워드 사용하기</h3>
+    <p>transition-timing-function : linear(항상 똑같은 속도) | ease(점점 빨라졌다가 점점 느려지는) | ease-in(시작이 느렸다가 점점 빨라지게) | ease-out(시작이 빨랐다가 점점 느려지게) )</p>
+    <div id="trans3"></div>
+
+    <h3>트랜지션 지연시켜 실행하기</h3>
+    <div id="trans4"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

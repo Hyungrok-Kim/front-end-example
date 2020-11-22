@@ -1,0 +1,80 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>선택자 우선순위</title>
+    <style>
+      /* 우선순위 1 */
+      .test1 {
+        /*
+            만약 스타일이 겹칠 경우
+            실제 겹치는 속성의 정보만
+            덮어 씌운다.
+             */
+        background: yellowgreen;
+        color: blue;
+      }
+
+      div {
+        width: 150px;
+        height: 150px;
+        background: lightgreen;
+      }
+
+      #test1 {
+        background: salmon;
+      }
+
+      /* 우선순위 2 */
+      .test2 {
+        background: hotpink !important;
+        color: darkgoldenrod !important;
+      }
+
+      .test2 {
+        background: lightcyan !important;
+        color: blue !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>선택자 우선순위</h1>
+    <p>
+      CSS에서는 기본적으로 위에서 아래로 적용을 하기 때문에 <br />
+      같은 태그에 스타일이 여러 번 적용될 경우 가장 마지막에 <br />
+      선언한 스타일로 반영된다. <br />
+      단, CSS 기준의 적용 우선순위가 있을 경우 <br />
+      해당 우선순위에 따라 CSS가 덮어 씌워진다.
+    </p>
+    <pre>
+        < : &lt;
+        > : &gt;
+        태그 선택자 &gt; 클래스 선택자 &gt; 아이디 선택자
+        &gt; 인라인 선택자 &gt; !important
+        순으로 우선순위를 가진다.
+        인라인 선택자는 직접 태그에 속성을 기술하는 방법
+    </pre>
+
+    <h2>우선순위 테스트</h2>
+    <!-- div[id=test class=test]*2 -->
+    <div id="test1" class="test1" style="background: mintcream; color: chocolate">우선순위 테스트입니다. 1</div>
+    <div id="test2" class="test2" style="background: darkgreen; color: white">우선순위 테스트입니다. 2</div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

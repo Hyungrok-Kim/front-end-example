@@ -1,0 +1,108 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>애니메이션 스타일</title>
+    <style>
+      @keyframes trans1 {
+        from {
+          /* 시작 지점 */
+          background: purple;
+          border: 1px solid black;
+        }
+        to {
+          /* 끝 지점 */
+          background: plum;
+          border-radius: 50%;
+          transform: perspective(300px) rotate(360deg);
+          border: 3px solid grey;
+        }
+      }
+
+      @keyframes trans2 {
+        /* 여러 변화를 설정하기  */
+        0% {
+          background: gold;
+          border: 3px solid red;
+        }
+        30% {
+          transform: translate(50px, 50px);
+        }
+        50% {
+          background: orange;
+          transform: scale(2);
+          border: 5px solid darkred;
+        }
+        100% {
+          background: orangered;
+          transform: rotate(45deg);
+          border: 1px solid black;
+        }
+      }
+
+      #test1 {
+        margin: 100px;
+        width: 50px;
+        height: 100px;
+        animation-name: trans1; /* keyframes 등록 */
+        animation-duration: 4s; /* 실행 시간 */
+        animation-iteration-count: 10; /* 반복 횟수*/
+      }
+
+      #test2 {
+        margin: 100px;
+        width: 100px;
+        height: 100px;
+        animation-name: trans2;
+        animation-duration: 5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite; /* 무한 반복 */
+      }
+
+      img {
+        margin-left: 100px;
+        width: 100px;
+        height: 100px;
+        animation-name: trans1;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-iteration-count: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>애니메이션 스타일</h1>
+
+    <h3>@keyframes 를 활용한 애니메이션 만들기</h3>
+
+    <div id="test1"></div>
+
+    <div id="test2"></div>
+
+    <img src="../resources/image/iconsample.png" />
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 선택자 3</title>
+    <style>
+      /* div 공통 스타일 지정 */
+      div {
+        border: 3px solid black;
+      }
+
+      /* 이웃한 요소들 중 첫번째 요소 */
+      #test1 p:first-child {
+        /*first-of-type이라고도 가능 */
+        background: tomato;
+      }
+
+      /* 이웃한 요소들 중 마지막 요소 */
+      #test1 *:last-child {
+        /* last-of-type */
+        background: tomato;
+      }
+
+      /* 이웃한 요소들 중 n번째 요소 */
+      #test1 p:nth-child(2n) {
+        /* nth-of-type(숫자) */
+        background: lightgreen;
+      }
+      /* 이웃한 요소들 중 뒤에서 n번째 요소 */
+      #test1 p:nth-last-child(2n) {
+        /* nth-last-of-type(숫자) */
+        color: purple;
+      }
+
+      /* 부정 선택자 */
+      #test2 p:not(:nth-child(3)){
+          background: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 선택자 3</h1>
+
+    <h2>일반 구조 선택자</h2>
+    <p>특정 위치의 요소(태그)를 선택하는 방법</p>
+    <div id="test1">
+      <p>테스트 1</p>
+      <p>테스트 2</p>
+      <p>테스트 3</p>
+      <p>테스트 4</p>
+      <p>테스트 5</p>
+      <pre>테스트 6</pre>
+    </div>
+
+    <h2>부정 선택자</h2>
+    <p>선택한 요소를 제외한 나머지 선택</p>
+    <div id="test2">
+      <p>테스트 1</p>
+      <p>테스트 2</p>
+      <p>테스트 3</p>
+      <p>테스트 4</p>
+      <p>테스트 5</p>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">메인으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

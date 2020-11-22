@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#menu {
+    width : 1000px;
+    height: 40px;
+    clear : both;
+                    /* clear both는 float으로 나열할 때 그 뒤에 있는 것들은 
+                    float 속성이 통하지 않게 막는 것.
+                    float을 쓰면 그 뒤에 나열되는 모든 것들이 float속성을 띄기 때문에.
+                    메뉴 안에 있는 것들이 끝나면 float속성이 먹지않게끔!*/
+}
+
+ul.nav {
+    float: left;
+    width: 1000px;
+    margin : 0px;
+    padding : 0px;
+    list-style : none;
+    background : khaki;
+    border-top-left-radius: 10px;   
+    border-top-right-radius : 10px;
+}
+
+ul.nav li {
+    display:inline;
+}
+
+ul.nav li a {
+    float:left;
+    line-height : 40px;
+    color : black;
+    text-decoration : none;
+    text-shadow : 1px 1px 1px saddlebrown;
+    margin : 0px;
+    padding : 0px 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+ul.nav li:hover>a {
+    color : white;
+    text-decoration : none;
+    text-shadow : 1px 1px 1px saddlebrown;
+    background : brown;
+    border-top-left-radius : 10px;
+    border-top-right-radius: 10px;
+}
+
+ul.nav ul { display: none; }
+
+ul.nav li:hover>ul{
+    
+    position : absolute;
+    display : block;
+    width : 1000px;
+    height: 45px;
+    margin-top : 40px;
+    background : maroon;
+    border-bottom-left-radius : 10px;
+    border-bottom-right-radius: 10px;
+}
+
+ul.nav li:hover>ul li a {
+    line-height : 45px;
+    color : white;
+    text-shadow : 1px 1px 1px black;
+    margin : 0px;
+    padding-left: 30px;
+}
+
+ul.nav li:hover>ul li a:hover {
+    color : yellow;
+    background : maroon;
+}

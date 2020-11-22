@@ -1,0 +1,133 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>기타 변형 스타일</title>
+    <style>
+      .wrap1 {
+        border: 1px solid darkgrey;
+        width: 250px;
+        height: 200px;
+        display: inline-block;
+      }
+
+      .wrap1 img {
+        width: 250px;
+        height: 200px;
+        border: 1px solid blue;
+      }
+
+      .left-top:active {
+        transform-origin: left top;
+        transform: rotateZ(25deg);
+      }
+
+      .right-top:active {
+        transform-origin: right top;
+        transform: rotateZ(25deg);
+      }
+
+      .left-bottom:active {
+        transform-origin: left bottom;
+        transform: rotateZ(25deg);
+      }
+
+      .right-bottom:active {
+        transform-origin: right bottom;
+        transform: rotateZ(25deg);
+      }
+
+      #wrap2 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        display: inline-block;
+      }
+
+      .box1 {
+        transform: perspective(500px) rotateY(45deg);
+        width: 200px;
+        height: 200px;
+        background: maroon;
+      }
+
+      .box2 {
+        transform: rotateX(45deg);
+        transform-origin: left top;
+        width: 200px;
+        height: 200px;
+        background: chocolate;
+      }
+
+      .style {
+        transform-style: left;
+      }
+
+      .style:active {
+        transform-style: preserve-3d;
+      }
+
+      #wrap3 {
+        width: 300px;
+        height: 200px;
+        border: 1px solid black;
+        display: inline-block;
+      }
+
+      #wrap3 img {
+        width: 300px;
+        height: 200px;
+      }
+
+      .back:active {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>기타 변형 스타일</h1>
+
+    <h3>변형 기준점 설정하기</h3>
+    <p>
+      transform-origin 속성을 사용하면, <br />
+      변형의 기준점을 잡을 수 있다.
+    </p>
+    <!-- div>(div.wrap1>img)*4-->
+    <div>
+      <div class="wrap1">
+        <img src="../resources/image/tower1.PNG" alt="" class="left-top" />
+      </div>
+      <div class="wrap1">
+        <img src="../resources/image/tower1.PNG" alt="" class="right-top" />
+      </div>
+      <div class="wrap1">
+        <img src="../resources/image/tower1.PNG" alt="" class="left-bottom" />
+      </div>
+      <div class="wrap1">
+        <img src="../resources/image/tower1.PNG" alt="" class="right-bottom" />
+      </div>
+    </div>
+
+    <h3>3d 변형 스타일</h3>
+    <!-- div#wrap2>div.box1.style>div.box2 -->
+    <div id="wrap2">
+      <div class="box1 style">
+        <div class="box2"></div>
+      </div>
+    </div>
+
+    <h3>사진 반전</h3>
+    <!-- div>div#wrap3>img.back -->
+    <div>
+      <div id="wrap3">
+        <img src="../resources/image/river2.PNG" class="back" />
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+  </body>
+</html>

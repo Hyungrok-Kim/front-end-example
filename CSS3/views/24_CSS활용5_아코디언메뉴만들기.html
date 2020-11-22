@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 활용 5 :아코디언 메뉴 만들기</title>
+    <style>
+        .menuSection{
+            background : lightgrey;
+            width : 500px; 
+            margin:  0px;
+            padding : 10px;
+
+        }
+
+        .menuSection h2{
+            margin : 5px 0;
+            padding : 0;
+
+        }
+
+        .menuSection h2 a {
+            font-size : 15px;
+            display : block;
+            color : white;
+            text-shadow: 2px 2px 2px black;
+            text-decoration: none;
+            margin : 0;
+            padding : 10px;
+            border-radius : 5px;
+
+        }
+
+        .menuSection h2 a:focus,
+        .menuSection h2 a:hover,
+        .menuSection h2:active{
+            background: skyblue;
+            color : black;
+            text-shadow : none;
+        } 
+
+        .menuSection p {
+            padding : 0 10px;
+            margin : 0;
+            height : 0;
+            background : ivory;
+            overflow : hidden;
+            transition: height 0.5s ease-in;
+        }
+
+        .menuSection:target p{
+            overflow : auto;
+            height : 100px;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 활용 5 :아코디언 메뉴 만들기</h1>
+    
+    <hr>
+
+    <h1>아코디언 메뉴</h1>
+   <!--(div.menuSection>((h2>a)+p)*3 -->
+    <div class="menuSection" id="part1">
+        <h2><a href="#part1">Q. 배송은 언제 도착하나요?</a></h2>
+        <p>
+            배송은 택배사의 사정에 따라 다르나 발송일로 부터 익일 또는 2일 이내에 도착하게 됩니다.
+            
+            토요일, 일요일 주문건은 월요일에 배송되니 참고해 주시기 바랍니다.
+        </p>
+    </div>
+    <div class="menuSection" id="part2">
+        <h2><a href="#part2">Q. 사기를 당했습니다. 어떡하나요?</a></h2>
+        <p>
+            해당 건은 경찰서에 가셔서 서류 접수 후 진행 하셔야 합니다.
+            저희 쇼밍몰은 사기와 관련한 문제에 어떠한 책임도 지지 않습니다.
+            감사합니다.
+        </p>
+    </div>
+    <div class="menuSection" id="part3">
+        <h2><a href="#part3">Q. 달팽이가 집을 나갔습니다.</a></h2>
+
+        <p>
+            달팽이에게 상처를 주셨군요. 
+            달팽이가 제일 좋아하는 음식이 소금입니다. 
+            너무 많이 주시면 안되니까 한 꼬집 주시고,
+            화해하세요 :)
+        </p>
+    </div>
+</body>
+</html>

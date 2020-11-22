@@ -1,0 +1,129 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>폰트 관련 스타일</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet" />
+
+    <style>
+      #ff-1 {
+        font-family: '궁서체';
+      }
+
+      #ff-2 {
+        font-family: '바탕체';
+      }
+
+      #ff-3 {
+        font-family: '쿠키런체', '고양체', '맑은 고딕';
+      }
+
+      /* 웹 폰트 적용하기 */
+      #web-font {
+        font-family: 'Ranchers', cursive;
+      }
+      #f-size1 {
+        font-size: 30px;
+      }
+
+      #f-size2 {
+        font-size: 2em; /*현재 사이트의 기본 크기의 2배 */
+      }
+
+      #f-size3 {
+        font-size: 150%;
+      }
+
+      #fw1 {
+        font-weight: lighter;
+      }
+
+      #fw2 {
+        font-weight: bold;
+      }
+
+      #fw3 {
+        font-weight: bolder;
+      }
+
+      /* 폰트 기울임체 설정하기 */
+
+      #fs1 {
+        font-style: normal;
+      }
+
+      #fs2 {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>폰트 관련 스타일</h1>
+
+    <h3>font-familly 속성 : 문자열의 글꼴 지정</h3>
+    <pre>선택자 {font-familly : 글꼴명(폰트명) }</pre>
+
+    <p id="ff-1">돌다리도 두들겨보고 건너라</p>
+    <p id="ff-2">소잃고 외양간 고치기</p>
+    <p id="ff-3">아프니까 병원간다.</p>
+
+    <h3>웹 폰트 가져오기</h3>
+    <p>
+      웹 폰트 참조 사이트 :
+      <a href="http://fonts.google.com" target="_blank">구글 웹 폰트 사이트</a>
+    </p>
+    <p id="web-font">Pen Pineapple Alpple Pen</p>
+
+    <hr />
+
+    <h3>글꼴 크기 변경하기</h3>
+    <pre>선택자 {font-size : 크기; } </pre>
+    <!-- ul>li[id=f-size]*3 -->
+    <ul>
+      <li id="f-size1">고정 크기 px|pt 설정</li>
+      <li id="f-size2">가변 크기 em 설정 | rem</li>
+      <li id="f-size3">가변 크기 % 설정</li>
+    </ul>
+
+    <hr />
+
+    <h3>폰트 굵기 설정하기</h3>
+    <pre>
+        선택자 { font-weight : normal | bold | bolder | lighter | 100 ~ 900}
+        ** 단, 폰트가 해당 굵기를 지원해야가능하다.
+    </pre>
+
+    <!-- ul>li[id=fw]*3 -->
+    <ul>
+      <li id="fw1">다이어트는 내일부터</li>
+      <li id="fw2">다이어트는 내일부터</li>
+      <li id="fw3">다이어트는 내일부터</li>
+    </ul>
+
+    <hr />
+    <h3>폰트 기울기 설정하기</h3>
+    <pre>
+        선택자{font-style : normal | italic; }
+    </pre>
+
+    <!-- ul>li[id=fs]*2 -->
+    <ul>
+      <li id="fs1">일반 글꼴</li>
+      <li id="fs2">기울임체 글꼴</li>
+    </ul>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

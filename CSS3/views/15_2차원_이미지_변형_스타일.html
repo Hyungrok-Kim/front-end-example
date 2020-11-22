@@ -1,0 +1,107 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang>
+  <head>
+    <meta charset="UTF-8" />
+    <title>2차원 이미지 변형 스타일</title>
+    <style>
+      .trans {
+        width: 250px;
+        height: 200px;
+      }
+
+      .trans1:active {
+        transform: translateX(50px);
+        /* 호환성 */
+        -webkit-transform: translateX(50px); /* 크롬, 사파리, 엣지 */
+        -ms-transform: translateX(50px); /* 인터넷 익스플로러(IE)*/
+        -o-transform: translateX(50px); /* 오페라 전용 */
+        -moz-transform: translateX(50px); /*파이어폭스 전용*/
+        color:greenyellow
+      }
+
+      .trans2:hover {
+        transform: translateY(50px);
+      }
+
+      .trans3:hover {
+        transform: translate(50px, 50px);
+        /* 대각선으로 움직이기 */
+      }
+
+      .trans4:hover {
+        transform: scaleX(1.1);
+      }
+
+      .trans5:hover {
+        transform: scaleY(1.1);
+      }
+
+      .trans6:hover {
+        transform: scale(1.05, 1.05);
+      }
+
+      .trans7:hover {
+        transform: rotate(45deg); /*45 degree(각도)이다 */
+      }
+
+      .trans8:hover {
+        transform: skewX(45deg); /* skewY() 도 가능*/
+      }
+
+      .trans9:hover {
+        transform: skew(10deg, 10deg);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>2차원 이미지 변형 스타일</h1>
+    <p>
+      특정 요소를 가로, 세로 위치 정보를 활용하여 <br />
+      이동시키거나 길이 변화를 시키는 스타일
+    </p>
+
+    <h3>이미지 좌우 이동</h3>
+    <img src="../resources/image/flower1.PNG" class="trans trans1" />
+
+    <h3>이미지 상하 이동</h3>
+    <img src="../resources/image/flower2.PNG" class="trans trans2" />
+    <h3>이미지 대각선 이동</h3>
+    <img src="../resources/image/flower3.PNG" class="trans trans3" />
+
+    <hr />
+    <h3>이미지 가로 확대</h3>
+    <img src="../resources/image/flower4.PNG" alt="" class="trans trans4" />
+    <h3>이미지 세로 확대</h3>
+    <img src="../resources/image/flower5.PNG" alt="" class="trans trans5" />
+    <h3>이미지 전체 확대</h3>
+    <img src="../resources/image/flower1.PNG" alt="" class="trans trans6" />
+
+    <hr />
+
+    <h3>이미지 회전시키기</h3>
+    <img src="../resources/image/river1.PNG" alt="" class="trans trans7" />
+    <h3>이미지 비틀기</h3>
+    <img src="../resources/image/river2.PNG" alt="" class="trans trans8" />
+    <h3>이미지 전체 비틀기</h3>
+    <img src="../resources/image/city1.PNG" alt="" class="trans trans9" />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

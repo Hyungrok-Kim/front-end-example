@@ -1,0 +1,78 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>3차원 이미지 변형 스타일</title>
+    <style>
+      img {
+        width: 250px;
+        height: 200px;
+      }
+
+      .trans1:hover {
+        /* 우선 원근감 설정 필요 */
+        /* perspective는 대략적 투영도(원근거리) 기준 */
+        transform: perspective(300px) translate3d(10px, 0px, 100px);
+      }
+
+      .trans2:hover {
+        transform: perspective(300px) translateZ(50px);
+      }
+
+      .trans3:hover {
+        transform: perspective(300px) rotateZ(45deg);
+      }
+
+      .trans4:hover {
+        transform: perspective(300px) rotate3d(2.5, 1.5, -1.5, 30deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>3차원 이미지 변형 스타일</h1>
+
+    <h3>지정한 크기만큼 x, y, z축 이동하기</h3>
+    <img src="../resources/image/flower1.PNG" alt="" class="trans1" />
+    <h3>지정한 크기만큼 z축 이동하기</h3>
+    <img src="../resources/image/flower2.PNG" alt="" class="trans2" />
+    <h3>지정한 각도만큼 z축 회전하기</h3>
+    <img src="../resources/image/flower3.PNG" alt="" class="trans3" />
+    <h3>지정한 각도만큼 x, y, z축 회전하기</h3>
+    <img src="../resources/image/flower4.PNG" alt="" class="trans4" />
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a href="index.html">처음으로 돌아가기</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+
+</body>
+</html>

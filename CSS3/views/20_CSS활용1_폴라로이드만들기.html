@@ -1,0 +1,67 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 활용 1 : 폴라로이드 만들기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet" />
+    <link href="../resources/css/polaroid.css" rel="stylesheet" type="text/css" />
+    <!-- 
+        외부 스타일 설정 참조 방법
+        link 태그를 사용하여 외부 스타일을 가져올 수 있다.
+        단, 여러 스타일을 외부에서 참조할 경우 선언의 순서에 따라 
+        스타일이 적용되기 때문에, 반드시 우선순위를 먼저 확인해야 한다.
+     -->
+  </head>
+  <body>
+    <h1>CSS 활용 1 : 폴라로이드 만들기</h1>
+
+    <hr />
+
+    <!--div.polaroid.rotate>img>p.caption-->
+    <div class="polaroid rotate">
+      <img src="../resources/image/city1.PNG" />
+      <p class="caption">
+        오늘따라 햇살이 아주 밝다... <br />
+        #우리집#옥탑방#어제비옴#창문열어놓음
+      </p>
+    </div>
+
+    <div class="polaroid rotate1">
+      <img src="../resources/image/flower1.PNG" />
+      <p class="caption1">
+        꽃이 참 이쁘네...<br />
+        #꽃#Flower
+      </p>
+    </div>
+
+    <div class="polaroid rotate2">
+      <img src="../resources/image/flower2.PNG" />
+      <p class="caption2">
+        꽃보단 하늘이 더 이쁘다... <br />
+        #꽃보단하늘#sky
+      </p>
+    </div>
+
+    <div class="polaroid rotate3">
+      <img src="../resources/image/flower3.PNG" />
+      <p class="caption3">
+        비가오네... <br />
+        #비싫어#습해#찝찝해
+      </p>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로</a>
+    <br />
+    <br />
+  </body>
+</html>

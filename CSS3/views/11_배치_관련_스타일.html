@@ -1,0 +1,223 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>배치 관련 스타일</title>
+    <style>
+      .outer {
+        position: relative; /* 다른 태그 위치에 영향을 받는 상대 위치 */
+        background: lightsteelblue;
+      }
+
+      .position {
+        border: 1px solid black;
+      }
+
+      .first {
+        width: 300px;
+        height: 300px;
+        background: lightskyblue;
+      }
+
+      .second {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+      }
+
+      .third {
+        width: 100px;
+        height: 100px;
+        background: lightsalmon;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+
+      .fixed-area {
+        width: 80px;
+        height: 50px;
+        background: lightcyan;
+        position: fixed;
+        right: 10%;
+      }
+
+      .vis-test {
+        width: 100px;
+        height: 100px;
+        border: 3px solid grey;
+      }
+
+      .vis1 {
+        background: yellow;
+      }
+
+      .vis2 {
+        background: steelblue;
+        /* visibility: hidden; */
+        display: none;
+      }
+
+      .vis3 {
+        background: orangered;
+      }
+
+      .wrap {
+        position: relative;
+      }
+
+      .z-test {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+
+      .zi1 {
+        background: lightblue;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        z-index: 1000; /* 1에서 5000까지 있음 z-index가 크면 클수록 윗단계(위로)로 배치됨*/
+      }
+
+      .zi2 {
+        background: lightpink;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        z-index: 100;
+      }
+
+      .zi3 {
+        background: lightgreen;
+        /* position: absolute; */
+        z-index: 1;
+      }
+
+      .float {
+        width: 800px;
+        height: 300px;
+        border: 1px solid red;
+      }
+
+      .float-test {
+        border: 1px solid blue;
+        width: 100px;
+        height: 100px;
+        float: right; /* div로 설정해서 위아래로 나오는 배치를 좌우로 쭉 나열할 때 사용*/
+      }
+    </style>
+  </head>
+  <body>
+    <h1>배치 관련 스타일</h1>
+
+    <h3>절대 위치와 상대 위치</h3>
+
+    <div class="outer" id="top">
+      <div class="position first"></div>
+      <div class="position second"></div>
+      <div class="position third"></div>
+    </div>
+
+    <h3>고정 위치 (fixed)</h3>
+    <div class="position fixed-area"><a href="#top">Top ▲</a></div>
+
+    <hr />
+
+    <h3>visibility (시각화)</h3>
+    <p>특정 태그를 보이게 하거나 , 안보이게 설정하는 속성</p>
+
+    <pre>
+        visibility : 특정 태그를 안보이게 설정하는 속성
+                     존재하던 공간은 그대로 유지하는 특성이 있다.
+
+        display : none;
+                 태그 내용 및 존재하던 공간 자체를 지우는 특성을 가진다.    
+    </pre>
+
+    <!-- div.vis-test.vis*3 -->
+    <div class="vis-test vis1">피카츄</div>
+    <div class="vis-test vis2">잠만보</div>
+    <div class="vis-test vis3">파이리</div>
+    <br />
+
+    <hr />
+
+    <h3>페이지 내의 요소들을 특정 순서로 쌓기</h3>
+
+    <!-- div.wrap>div.z-test.zi*3 -->
+    <div class="wrap">
+      <div class="z-test zi1">A</div>
+      <div class="z-test zi2">B</div>
+      <div class="z-test zi3">C</div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <hr />
+    <h3>float 속성</h3>
+    <p>
+      페이지의 요소(태그)들을 왼쪽이나 오른쪽 기준으로 위치를 재정렬하는 속성 <br />
+      마지막으로 정렬될 요소 다음에 clear : both; 속성을 주지 않으면, <br />
+      그 뒤에 따라오는 요소들 모두 float가 적용된다.
+    </p>
+
+    <!-- div.float>div.float-test{번입니다.}*5 -->
+    <div class="float">
+      <div class="float-test">1번입니다.</div>
+      <div class="float-test">2번입니다.</div>
+      <div class="float-test">3번입니다.</div>
+      <div class="float-test">4번입니다.</div>
+      <div class="float-test">5번입니다.</div>
+      <div class="test-div" style="clear: both">확인용 div</div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

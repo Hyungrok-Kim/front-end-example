@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 선택자 1</title>
+    <style>
+      /* CSS 주석 */
+      /* 모든 요소 선택자 */
+      /* * {
+        color: green;
+      } */
+
+      /* 태그 선택자 */
+      p {
+        color: blue;
+      }
+
+      /* 클래스 선택자 */
+      .g1 {
+        background: lightgreen;
+      }
+
+      .g2 {
+        background: black;
+        color: snow;
+      }
+
+      /* 아이디 선택자 */
+      #one {
+        background: yellow;
+        color: brown;
+      }
+
+      #five {
+        background: skyblue;
+        color: navy;
+      }
+
+      /* 만약 태그선택자와 아이디 선택자등이 겹치면
+      우선 순위는 좁은 쪽이 더 우선이다. 아이디 선택자 > 태그 선택자 */
+    </style>
+  </head>
+  <body>
+    <h1>CSS 선택자 1</h1>
+    <p>
+      선택자란? <br />
+      특정한 HTML 태그 요소를 선택할 때 사용하는 표기 방식<br />
+      원하는 태그를 '선택'하여 원하는 스타일로 만들 수 있다.
+    </p>
+
+    <hr />
+
+    <h2>HTML내의 모든 요소 선택자</h2>
+    <p>HTML 안의 모든 요소(tag)를 선택한다.</p>
+    <ul>
+      <li>테스트 1</li>
+      <li>테스트 2</li>
+      <li>테스트 3</li>
+    </ul>
+
+    <h2>태그 선택자</h2>
+    <p>HTML 문서 내에 존재하는 동일한 태그들 모두를 선택하는 방법</p>
+    <pre>
+        p { 스타일 속성 ... }
+    </pre>
+
+    <h2>클래스 선택자</h2>
+    <p>
+      HTML에서는 특정 그룹으로 여러 태그를 묶을 때 'Class' 속성을 사용한다.<br />
+      스타일에서는 이러한 클래스 속성들만 선택할 수 있는 선택자도 제공한다.
+    </p>
+    <pre> .클래스명 { 스타일 속성 ... }</pre>
+
+    <ul>
+      <li class="g1">클래스 선택자 1</li>
+      <li class="g2">클래스 선택자 2</li>
+      <li class="g1">클래스 선택자 3</li>
+      <li class="g2">클래스 선택자 4</li>
+      <li class="g1">클래스 선택자 5</li>
+    </ul>
+
+    <hr />
+    <h2>아이디(ID) 선택자</h2>
+    <p>HTML 문서 내의 특정 요소 하나만을 선택하는 방법</p>
+    <pre>
+         #아이디명 { 스타일 속성 } 
+         아이디를 접근할 때는 #을 이용한다.
+    </pre>
+    <ol>
+      <li id="one">아이디 선택자 1</li>
+      <li id="two">아이디 선택자 2</li>
+      <li id="three">아이디 선택자 3</li>
+      <li id="four">아이디 선택자 4</li>
+      <li id="five">아이디 선택자 5</li>
+    </ol>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <a href="index.html">처음으로 돌아가기.</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

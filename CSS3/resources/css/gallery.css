@@ -1,0 +1,57 @@
+        @charset "UTF-8";
+        /* 수업용 썸네일 갤러리 스타일 */
+        /* 작성자 : 김형록  */
+        
+        /* 썸네일 목록 전체 스타일 */
+        #gallery ul{
+            margin-left : -30px;
+        }
+
+        /* 썸네일 각 li에 대한 스타일 */
+        #gallery ul li{
+            list-style : none; /* 블릿 기호 제거 */
+            display : inline-table;
+            padding : 10px;
+        }
+
+        /* 큰 이미지(pic) 기본 상태 스타일 */
+        .pic { 
+            transition : all 0.5s ease-in;
+            width : 320px;
+            height : 250px;
+            opacity : 0; /* 투명도 */
+            visibility : hidden;
+            position: absolute;
+            margin-top : 10px; 
+            margin-left : -20px;
+            border : 1px solid black;
+            box-shadow : 2px 2px 10px grey;
+
+        }
+
+        /* 마우스 올렸을 때 pic 보이게 하기  */
+
+        #gallery ul li:hover .pic {
+            opacity : 1;
+            visibility : visible;
+            float : right;
+
+        }
+
+        /* 마우스 커서 변경  */
+        #gallery ul li .small:hover{
+            cursor : pointer;
+        }
+
+        /* #gallery div 스타일 설정하기 */
+        #gallery {
+            border : 10px solid black;
+            height: 300px;
+            width : 450px;
+            margin-left : auto; /* 여백 자동으로 */
+            margin-right : auto; /*정중앙 처리됨*/
+            overflow : visible;
+            background : darkslategrey;
+            box-shadow : 10px 10px 20px darkgrey;
+            
+        }

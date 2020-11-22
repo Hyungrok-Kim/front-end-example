@@ -1,0 +1,82 @@
+/** @format */
+
+@charset "UTF-8";
+/* 해당 파일은 UTF-8로 작성되었음 */
+
+/* 
+    css 파일 : 웹 문서(HTML)와 별도로 나누어진 CSS 전용 설정 파일
+    만약 원문의 style 내용이 길어지거나 혹은 같은 내용의 스타일을
+    다른 웹 문서에서도 적용하고 싶을 경우, 이렇게 바깥에 css 파일을
+    별도로 생성하여 관리함으로써 외부 참조 형태로 가져다 쓸 수 있게
+    할 수 있다.
+
+    작성 방식은 <style> 태그 안에 선언했던 css 내용과 동일합니다. 
+
+    - 용도와 작성자, 저작권 등을 명시한다.
+
+    ** 이 파일은 352 Class 빅데이터 시각화 기반 UI 디자인 수업용 CSS 파일입니다.
+       해당 파일의 저작권은 홍길동에게 있으며, 수정 재배보, 상업적 이용을 금합니다.
+    ** 작성자 : Gildong Hong
+    
+*/
+
+.polaroid {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  width: 300px;
+  padding: 10px 10px 20px 10px;
+  background: white;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px grey;
+  display: inline-block;
+}
+
+.polaroid img {
+  width: 300px;
+  height: 180px;
+}
+
+.rotate {
+  transform: rotate(10deg);
+}
+
+.rotate1 {
+  transform: rotate(-10deg);
+}
+
+.rotate2 {
+  transform: rotate(-30deg);
+}
+
+.rotate3 {
+  transform: rotate(20deg);
+}
+
+.caption {
+  font-family: 'Black Han Sans', sans-serif;
+  text-align: center;
+  font-size: 14pt;
+  color: blue;
+}
+
+.caption1 {
+  font-family: 'Black Han Sans', sans-serif;
+  text-align: center;
+  font-size: 14pt;
+  color: black;
+}
+
+.caption2 {
+  font-family: 'Black Han Sans', sans-serif;
+  text-align: center;
+  font-size: 14pt;
+  color: cornflowerblue;
+}
+
+.caption3 {
+  font-family: 'Black Han Sans', sans-serif;
+  text-align: center;
+  font-size: 14pt;
+  color: dimgrey;
+}

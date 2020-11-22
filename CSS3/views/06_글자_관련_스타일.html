@@ -1,0 +1,198 @@
+<!-- @format -->
+
+/<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* color 속성 사용하기  */
+      #color-1 {
+        color: midnightblue;
+      }
+
+      #color-2 {
+        /* #[Red2가지][Green2가지][Blue가지] */
+        color: #549e85;
+      }
+
+      #color-3 {
+        /* 0 ~ 255 */
+        color: rgb(100, 50, 120);
+      }
+
+      #color-4 {
+        /* 0 ~ 1 : 0이면 투명도 100% / 1이면 투명도가 0% */
+        color: rgba(133, 158, 61.96, 1);
+      }
+
+      /* hsl의 2번째 3번째는 %로 써야만 됨 */
+
+      #color-5 {
+        color: hsl(250, 100%, 50%);
+      }
+
+      #color-6 {
+        color: hsla(250, 100%, 50%, 0.5);
+      }
+
+      /* 글자 꾸미기 */
+
+      #td1 {
+        text-decoration: underline;
+      }
+
+      #td2 {
+        text-decoration: line-through;
+      }
+
+      #td3 {
+        text-decoration: overline;
+      }
+
+      #td4 > a {
+        text-decoration: none;
+      }
+
+      /* test-shadow */
+      /* 글자 공통 속성 부여*/
+      .shadow {
+        font-size: 100px;
+        line-height: 300px;
+        font-weight: 900;
+      }
+
+      #ts1 {
+        text-shadow: 5px 5px orangered;
+        color: orange;
+      }
+
+      #ts2 {
+        color: white;
+        text-shadow: 0px 1px 20px grey;
+      }
+
+      #ts3 {
+        color: white;
+        text-shadow: 1px 1px 25px #6f0;
+      }
+
+      #ts4 {
+        text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #f80, 2px -19px 20px #f20;
+      }
+
+      #bg:active {
+        background: black;
+      }
+
+      /* 글자 간 여백 설정하기 */
+      #space1 {
+        white-space: normal;
+      }
+
+      #space2 {
+        white-space: nowrap;
+      }
+
+      #space3 {
+        white-space: pre;
+      }
+
+      #space4 {
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>글자 관련 스타일</h1>
+
+    <h3>color 속성 : 글자 의 색상을 설정</h3>
+    <pre>
+          선택자 { color : 색상명 | 16진수숫자 | RGB색상 | RGBA 값 | HSL 값 | HSLA 값; }
+    </pre>
+    <p>
+      색상값 참조 사이트 :
+      <a href="http://www.colorpicker.com"> colorpicker</a>
+    </p>
+
+    <ul>
+      <li id="color-1">색상명</li>
+      <li id="color-2">16진수</li>
+      <li id="color-3">RGB 값</li>
+      <li id="color-4">RGBA 값(A: 투명도)</li>
+      <li id="color-5">HSL 값</li>
+      <li id="color-6">HSLA 값</li>
+    </ul>
+
+    <hr />
+
+    <h3>text-decoration 속성 : 글자의 밑줄, 취소선 등을 표현하는 속성</h3>
+    <pre>
+        선택자 { text-decoration : none | underline | overline | line-through}
+    </pre>
+    <ul>
+      <li id="td1">밑줄 표현</li>
+      <li id="td2">취소선 표현</li>
+      <li id="td3">윗줄 표현</li>
+      <li id="td4">
+        <a href="#">하이퍼링크</a>
+      </li>
+    </ul>
+
+    <h3>text-shadow : 글자 그림자 속성</h3>
+    <pre>
+        선택자 { text-shadow : none | 가로거리 세로거리 번짐정도 그림자색상;} 
+    </pre>
+
+    <!-- div#bg -->
+    <div id="bg">
+      <!-- span#ts.shadow{HTML5}*4 -->
+      <span id="ts1" class="shadow">HTML5</span>
+      &nbsp;&nbsp;&nbsp;
+      <span id="ts2" class="shadow">HTML5</span>
+      &nbsp;&nbsp;&nbsp;
+      <span id="ts3" class="shadow">HTML5</span>
+      &nbsp;&nbsp;&nbsp;
+      <span id="ts4" class="shadow">HTML5</span>
+    </div>
+
+    <hr />
+
+    <h3>white-space : 글자 간 여백 설정 스타일</h3>
+    <pre>
+      선택자 { white-space : normal | nowrap | pre | pre-line; }
+    </pre>
+    <p id="space1">
+      안촉촉한 초코칩 나라에 살던 안촉촉한 초코칩이 촉촉한 초코칩 나라의 촉촉한 초코칩을 보고 촉촉한 초코칩이 되고 싶어서 촉촉한 초코칩 나라에 갔는데 촉촉한 초코칩 나라의 촉촉한 초코칩 문지기가 "넌
+      촉촉한 초코칩이 아니고 안촉촉한 초코칩이니까 안촉촉한 초코칩나라에서 살아"라고해서 안촉촉한 초코칩은 촉촉한 초코칩이 되는것을 포기하고 안촉촉한 초코칩 나라로 돌아갔다. 내가 그린 기린 그림은 잘
+      그린 기린 그림이고 네가 그린 기린 그림은 잘 못 그린 기린 그림이다
+    </p>
+    <p id="space2">
+      안촉촉한 초코칩 나라에 살던 안촉촉한 초코칩이 촉촉한 초코칩 나라의 촉촉한 초코칩을 보고 촉촉한 초코칩이 되고 싶어서 촉촉한 초코칩 나라에 갔는데 촉촉한 초코칩 나라의 촉촉한 초코칩 문지기가 "넌
+      촉촉한 초코칩이 아니고 안촉촉한 초코칩이니까 안촉촉한 초코칩나라에서 살아"라고해서 안촉촉한 초코칩은 촉촉한 초코칩이 되는것을 포기하고 안촉촉한 초코칩 나라로 돌아갔다. 내가 그린 기린 그림은 잘
+      그린 기린 그림이고 네가 그린 기린 그림은 잘 못 그린 기린 그림이다
+    </p>
+    <p id="space3">
+      안촉촉한 초코칩 나라에 살던 안촉촉한 초코칩이 촉촉한 초코칩 나라의 촉촉한 초코칩을 보고 촉촉한 초코칩이 되고 싶어서 촉촉한 초코칩 나라에 갔는데 촉촉한 초코칩 나라의 촉촉한 초코칩 문지기가 "넌
+      촉촉한 초코칩이 아니고 안촉촉한 초코칩이니까 안촉촉한 초코칩나라에서 살아"라고해서 안촉촉한 초코칩은 촉촉한 초코칩이 되는것을 포기하고 안촉촉한 초코칩 나라로 돌아갔다. 내가 그린 기린 그림은 잘
+      그린 기린 그림이고 네가 그린 기린 그림은 잘 못 그린 기린 그림이다
+    </p>
+    <p id="space4">
+      안촉촉한 초코칩 나라에 살던 안촉촉한 초코칩이 촉촉한 초코칩 나라의 촉촉한 초코칩을 보고 촉촉한 초코칩이 되고 싶어서 촉촉한 초코칩 나라에 갔는데 촉촉한 초코칩 나라의 촉촉한 초코칩 문지기가 "넌
+      촉촉한 초코칩이 아니고 안촉촉한 초코칩이니까 안촉촉한 초코칩나라에서 살아"라고해서 안촉촉한 초코칩은 촉촉한 초코칩이 되는것을 포기하고 안촉촉한 초코칩 나라로 돌아갔다. 내가 그린 기린 그림은 잘
+      그린 기린 그림이고 네가 그린 기린 그림은 잘 못 그린 기린 그림이다
+    </p>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="index.html">처음으로 돌아가기</a>
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

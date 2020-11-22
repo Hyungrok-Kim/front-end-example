@@ -1,0 +1,130 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>테두리 관련 스타일</title>
+    <style>
+      .div-common {
+        width: 100px;
+        height: 100px;
+        border-width: 3px; /* 테두리 굵기*/
+      }
+      #border-test1 {
+        border-style: none;
+      }
+
+      #border-test2 {
+        border-style: hidden;
+        box-shadow: 5px 5px 3px 2px grey;
+      }
+      #border-test3 {
+        border-style: dotted;
+      }
+
+      #border-test4 {
+        border-style: dashed;
+        border-color: tomato;
+        border-top-color: green;
+      }
+
+      #border-test5 {
+        border-style: solid;
+        border-top-color: coral;
+        border-bottom-color: coral;
+        /*색깔은 default 검은색이다.*/
+      }
+      #border-test6 {
+        border-style: double;
+        border-color: green;
+      }
+
+      #border-test7 {
+        border-style: groove;
+
+        border-radius: 10px;
+      }
+      #border-test8 {
+        border-style: outset; /*바깥으로 튀어나온 것 같은 효과*/
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+      }
+
+      #border-test9 {
+        border-style: inset; /*안으로 들어간 것 같은 효과*/
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+      }
+
+      #border-test10 {
+        border-style: ridge; /*살짝 나와있는 듯한 모양*/
+        box-shadow: 5px 5px 3px 2px grey;
+        /* 살짝 붕 떠있는 듯한 느낌 */
+      }
+
+      #border-silsub {
+        border-style: solid;
+        box-shadow: 5px 5px 3px 2px grey;
+        /*border-color: blueviolet;
+        border-top-color: orange;
+        border-bottom-color: orange;
+        */
+        border-color: orange purple;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>테두리 관련 스타일</h1>
+
+    <pre>
+선택자 {border-style : none | hidden | 
+                    solid | dashed | dotted}
+    </pre>
+
+    <h3>border-style : none</h3>
+    <div class="div-common" id="border-test1"></div>
+
+    <h3>border-style : hidden &amp; box-shadow</h3>
+    <div class="div-common" id="border-test2"></div>
+
+    <h3>border-style : dotted;</h3>
+    <!-- div.div-common#border-test3 -->
+    <div class="div-common" id="border-test3"></div>
+  </body>
+
+  <h3>border-style : dashed;</h3>
+  <div class="div-common" id="border-test4"></div>
+
+  <h3>border-style : solid;</h3>
+  <div class="div-common" id="border-test5"></div>
+
+  <h3>border-style : double</h3>
+  <div class="div-common" id="border-test6"></div>
+
+  <h3>border-style : groove; &amp; border-radius;</h3>
+  <div class="div-common" id="border-test7"></div>
+
+  <h3>border-style : outset</h3>
+  <div class="div-common" id="border-test8"></div>
+
+  <h3>border-style : inset</h3>
+  <div class="div-common" id="border-test9"></div>
+
+  <h3>border-style : ridge</h3>
+  <div class="div-common" id="border-test10"></div>
+
+  <h3>border 실습</h3>
+  <div class="div-common" id="border-silsub"></div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <a href="index.html">처음으로 돌아가기</a>
+  <br />
+  <br />
+  <br />
+</html>
