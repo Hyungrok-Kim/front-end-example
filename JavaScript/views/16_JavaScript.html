@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Window 객체</title>
+    <style>
+        .area {
+            width : 400px;
+            height : 150px;
+            background : darkgreen;
+            color : white;
+            border : 3px solid darkolivegreen;
+             
+        }
+    </style>
+</head>
+<body>
+    <h1>Window 객체</h1>
+    <p>
+        window 객체는 자바스크립트가 가지는 브라우저 최상위 객체이다.<br>
+        크게 BOM과 DOM으로 나누어 진다. <br>
+        BOM (Browser Object Model) : <br>
+            location 객체, navigator 객체, history 객체, screen 객체 . . . <br>
+        DOM (Document Object Model) : <br>
+            document 객체, 그 이하의 모든 요소들...
+    </p>
+
+    <h3>window 객체</h3>
+    <button onclick="test1();">네이버로 가기</button>
+    &nbsp;&nbsp;
+    <button onclick="test2();">구글로 가기</button>
+
+    <script>
+        function test1() {
+            // 새 창을 여는 함수
+            // window.open('주소', '열 때 사용할 페이지명' , '기타설정들');
+            // - 각각의 브라우저 별로 선언 방식이 다르기 때문에 
+            //  사용할 때에는 호환성 여부를 반드시 확인해야 한다.
+
+            window.open('https://www.naver.com', '네이버',
+             'location=0 , resizable=no, menubar=yes, status=yes');
+        }
+
+        function test2(){
+            window.open('https://www.google.com', '구글', 'location=0');
+        }
+
+
+    </script>
+
+    <h3>window 객체의 timer 함수</h3>
+    <h4>setTimeout()</h4>
+    <button onclick="test3();">실행 확인</button>
+
+    <script>
+        function test3(){
+            var myWindow = window.open();
+
+            myWindow.alert("3초 후 이 페이지는 폭발합니다!");
+            //window.setTimeout(function(){ . . . }, 1000);
+            window.setTimeout(function(){
+                myWindow.alert("폭발!");
+
+                myWindow.close();
+
+            }, 3000)
+        }
+    </script>
+
+    <h4>setInterval()</h4>
+    <button onclick="test4();">실행 확인</button>
+    <div class="area" id="area4"></div>
+    <script>
+        function test4(){
+            window.setInterval(function(){
+                var today = new Date();
+
+                var div4 = document.getElementById('area4');
+
+                div4.innerHTML = today.getHours() + " : "
+                                +today.getMinutes() + " : "
+                                +today.getSeconds();
+            }, 1000)
+        }
+    </script>
+
+    <h4>clearInterval()</h4>
+    <button onclick="test5();">실행 확인</button>
+    <div class="area" id="area5"></div>
+    <script>
+        function test5(){
+            var count = 10;
+
+            var intervalCount = window.setInterval(function(){
+                var div5 = document.getElementById('area5');
+
+                div5.innerHTML = "카운트 다운 : " + count--;
+
+                window.setTimeout(function(){
+                    window.clearInterval(intervalCount); // window 생략 가능
+                    div5.innerHTML = "타 임 오 버";
+
+                }, 10000);
+            }, 1000);
+        }
+    </script>
+
+    <hr>
+
+    <h3>screen 객체</h3>
+    <p>
+        웹 브라우저의 화면이 아닌 현재 자신의 컴퓨터나 기타 기기의<br>
+         화면 속성(가로, 세로)을 담고 있는 객체 
+    </p>
+
+    <button onclick="test6();">실행 확인</button>
+    <script>
+        function test6(){
+            var width = screen.width;
+            var height = screen.height;
+            childWindow = window.open("","","width=800, height=500");
+
+            //childWindow.resizeTo(width, height); // 해당 화면의 사이즈를 변경하는 window 함수 
+            setInterval(function(){
+                childWindow.resizeBy(-30, -20); // 현재 사이즈로부터 변경하기
+                childWindow.moveBy(10, 10);
+                
+            } , 500);
+            
+            console.log("현재 화면 가로 길이 : " + width);
+            console.log("현재 화면 세로 길이 : " + height);
+            // 현재 나의 모니터 사이즈를 뽑아줌
+        }
+    </script>
+
+    <hr>
+
+    <h3>location 객체</h3>
+    <p>브라우저의 주소 정보와 관련 정보를 담은 객체 </p>
+    <button onclick="test7();">실행 확인</button>
+    <script>
+        function test7(){
+            console.log(location);
+        }
+    </script>
+
+    <h3>location 정보를 변경하여 다른 사이트 이동하기</h3>
+    <button onclick="location.href='https://www.naver.com';">네이버로 가기</button>
+    &nbsp;&nbsp;
+    <button onclick="location = 'https://www.google.co.kr';">구글로 가기</button>
+    <!-- location에도 여러 속성이 있는데 location을 아예 바꾸던가 
+    location의 href만 바꿔도 그 사이트로 이동한다.-->
+
+    <hr>
+
+    <h3>navigator 객체</h3>
+    <p>웹 브라우저의 정보를 관리하는 객체</p>
+
+    <button onclick="test8();">실행 확인</button>
+    <script>
+        function test8(){
+            console.log(navigator);
+        }
+    </script>
+
+    <h3>History 객체</h3>
+    <p>
+        웹 브라우저에서 뒤로가기, 앞으로 가기 등의 기능을 <br> 제공하는 객체
+    </p>
+
+    <h4>뒤로 가기와 앞으로 가기</h4>
+    <button onclick="test9();">실행 확인</button>
+
+    <script>
+        function test9(){
+            console.log(history);
+        }
+    </script>
+
+    <br><br>
+    <button onclick="history.back();">뒤로 가기</button>
+    &nbsp;&nbsp;
+    <button onclick="history.forward();">앞으로 가기</button>
+    <br>
+    <br>
+
+    <button onclick="history.go(-2);">2페이지 전으로</button>
+    &nbsp;&nbsp;   <!--2페이지 전으로-->
+    <button onclick="history.go(2);">2페이지 앞으로</button>
+    &nbsp;&nbsp;
+    <button onclick="history.go();">현재 페이지(새로고침)</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+</body>
+</html>

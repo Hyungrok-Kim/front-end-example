@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 내장 객체</title>
+</head>
+<body>
+    <h1>자바스크립트 내장 객체</h1>
+    <h3>Object 객체</h3>
+    <p>자바 스크립트에서 기본적으로 생성하는 객체</p>
+    <button onclick="test1();">실행 확인</button>
+    <script>
+        function test1(){
+            var obj1 = {};
+
+            var obj2 = new Object();
+
+            console.log(obj1);
+            console.log(obj2);
+
+        }
+    </script>
+
+    <h3>Number 객체</h3>
+    <button onclick="test2();">확인</button>
+
+    <script>
+        // toFixed : 특정 숫자를 고정 소숫점의 형태로 나타내는 함수
+
+        function test2(){
+            var num1 = 12345;
+            var num2 = 123.456;
+
+            console.log("num1 : " + num1);
+            console.log("num2 : " + num2);
+            console.log("num1.toFixed(4) : " + num1.toFixed(4));
+            console.log("num2.toFixed(4) : " + num2.toFixed(4));
+            console.log("num2.toFixed(2) : " + num2.toFixed(2)); //반올림까지 해줌
+
+        }
+    </script>
+
+    <h3>Date 객체</h3>
+    <p>날짜와 관련된 객체</p>
+    <button onclick="test3();">실행 확인</button>
+    <div id="area3"></div>
+
+    <script>
+        function test3(){
+            // 현재시간
+            var date1 = new Date();
+
+            // 날짜 명으로 시간 만들기
+            var date2 = new Date("September 22");
+            var date3 = new Date("September 22, 2020");
+            var date4 = new Date("September 22, 2020 17:20:00");
+
+            var div3 = document.getElementById('area3');
+
+            div3.innerHTML += date1 + "<br>";
+            div3.innerHTML += date2 + "<br>";
+            div3.innerHTML += date3 + "<br>";
+            div3.innerHTML += date4 + "<br>";
+
+            // 숫자로 시간 설정하기
+            var date5 = new Date(2020, 9 - 1, 22);
+            var date6 = new Date(2020,9-1 , 22, 17, 22, 00);
+            
+            div3.innerHTML += date5 + "<br>";
+            div3.innerHTML += date6 + "<br>";
+        }
+    </script>
+
+    <h3>Date 관련 함수</h3>
+    <button onclick="test4();">실행 확인</button>
+    <div id="area4"></div>
+
+
+    <script>
+        function test4(){
+            var toDay = new Date();
+
+            var div4 = document.querySelector('#area4');
+
+            div4.innerHTML += "getFullYear() : " + toDay.getFullYear() + "<br>";
+            div4.innerHTML += "getMonth() : " + (toDay.getMonth() + 1) + "<br>"; // 현재의 월을 구하려면 +1을 해야함. 배열이라 제로베이스
+            div4.innerHTML += "getDate() : " + toDay.getDate() + "<br>";
+            div4.innerHTML += "getHours() : " + toDay.getHours() + "<br>";
+            div4.innerHTML += "getMinutes() : " + toDay.getMinutes() + "<br>";
+            div4.innerHTML += "getSeconds() : " + toDay.getSeconds() + "<br>";
+
+            // 시스템 기준 (천분의 1초 기준) 시간
+            div4.innerHTML += "getMilliseconds() : " + toDay.getMilliseconds() + "<br>";
+            div4.innerHTML += "getTime() : " + toDay.getTime() + "<br>"; 
+            // 1970년 1월 1일 기준 천 분의 일 초세기
+
+            // 날짜 사이 간격 구하기
+            var now = new Date();
+            var start = new Date('August 13, 2020');
+
+            var interval = now.getTime() - start.getTime();
+            interval = Math.floor(interval / (1000 * 60 * 60 * 24)); // 일자 계산
+
+            alert("우리가 함께한 시간..." + interval + "일 째... ");
+
+            
+        }
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로 돌아가기</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

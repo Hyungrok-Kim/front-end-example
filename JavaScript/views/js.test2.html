@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table>
+        <span id="s1">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>조회수</th>
+            <th>작성일자</th>
+        </tr>
+        </span>
+        <span id="s2" onclick="s2css();">
+        <tr>
+            <td>3</td>
+            <td>3번제목</td>
+            <td>0</td>
+            <td>11-07-13</td>
+        </tr>
+    </span>
+        <span id="s3">
+        <tr>
+            <td>2</td>
+            <td>2번제목</td>
+            <td>0</td>
+            <td>11-07-12</td>
+        </tr>
+    </span>
+        <span id="s4">
+        <tr>
+            <td>1</td>
+            <td>1번제목</td>
+            <td>0</td>
+            <td>11-07-11</td>
+        </tr>
+    </span> 
+    </table>
+    
+    <script>
+            $('#s2').click(function(){
+                $(this).css('background', 'red').css('color', 'white');
+            });
+
+            $('#s3').click(function(){
+                $(this).css('background', 'red').css('color', 'white');
+            });
+            $('#s4').click(function(){
+                $(this).css('background', 'red').css('color', 'white');    
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트</title>
+</head>
+<body>
+    <h1>이벤트</h1>
+
+    <h3>이벤트 등록 방법 : </h3>
+    <p>
+        <ol>
+            <li>고전 이벤트 등록 방법 : <br>
+                특정 요소(태그)의 속성을 통해 이벤트를 연결(바인드:bind)
+            </li>
+            <li>
+                표준 이벤트 등록 방법 : <br>
+                addEventListener('이벤트 명', function(){ 동작할 기능(함수)})
+            </li>
+            <li>
+                인라인 이벤트 등록 방법 : <br>
+                HTML 태그(요소) 선언 시 이벤트를 직접 같이 선언하는 방법
+            </li>
+        </ol>
+    </p>
+
+    <h3>고전 이벤트 등록 방법</h3>
+    <button id="btn1">함수 실행!</button>
+    <button id="btn2">함수 실행!</button>
+
+    <script>
+        var myBtn1 = document.getElementById('btn1');
+        var myBtn2 = document.getElementById('btn2');
+
+        myBtn1.onclick = function(){
+            alert("btn1이 클릭 되었습니다.");
+        }
+
+        myBtn2.onclick = function(){
+            alert("btn2가 클릭 되었습니다.");
+
+            // 다른 이벤트 제거하기
+            myBtn1.onclick = null;
+        }
+
+
+    </script>
+
+    <h3>표준 이벤트 등록 방법</h3>
+
+    <button id="btn3">실행 확인</button>
+
+    <script>
+        var myBtn3 = document.getElementById('btn3');
+
+        myBtn3.addEventListener('click', function(){
+            // this : 이벤트가 발생한 요소 자체
+            this.style.backgroundColor = "white";
+            this.style.color = 'blue';
+        });
+    </script>
+
+    <h3>인라인 이벤트 등록 방법</h3>
+    <button onclick="testBtn();">실행 확인</button>
+    <script>
+        function testBtn(){
+            alert('헐.....이게 최고네 !');
+        }
+    </script>
+
+        <h3>기본 이벤트 submit 제거 및 유효성 검사하기</h3>
+        <p>
+            a태그는 클릭하면 다른 페이지로 이동한다.<br>
+            form 태그 안의 submit 버튼은 클릭했을 때 자동으로 입력한<br>
+            내부의 양식을 특정 페이지로 전달하고 해당 페이지로 새로고침한다.
+        </p>
+
+        <form action="index.html" id="userJoin">
+            이름 : <input type="text" name="name" id="name"><br>
+            아이디 : <input type="text" name="userid" id="userid"> <br>
+            비밀번호 : <input type="password" name="userpwd" id="userpwd"><br>
+            비밀번호 확인 : <input type="password" name="checkpwd" id="checkpwd"><br>
+
+            <input type="submit" value="제출하기" onclick="return testValidate();">
+        </form>
+
+        <script>
+            function testValidate(){
+                var name = document.getElementById('name').value;
+                var userid = document.getElementById('userid').value;
+                var password = document.getElementById('userpwd').value;
+                var checkpwd = document.getElementById('checkpwd').value;
+
+                console.log(name + ", " + userid + ", " + password +
+                                ", " + checkpwd);
+
+                
+                // 비밀번호 입력 값이 확인 값과 일치하는 지 확인 (유효성 체크)
+                if(password.length > 0 && password == checkpwd ){
+                    // 정상 가입
+                    alert("정상 입력 했습니다.")
+                } else{
+                    alert("비밀번호를 잘못 입력했습니다.");
+                    
+                    return false;
+                }
+                
+
+            }
+        </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음</a>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

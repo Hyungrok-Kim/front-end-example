@@ -1,0 +1,116 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습 2</title>
+  <style>
+	fieldset {  		
+		width: 400px;		
+		text-align: center;
+		background: #dbdbdb;
+	}
+	div.box {
+		width: 500px;	
+		height: 50px;
+		box-align: center middle;		
+		margin: 10px;
+		padding: 10px;
+        background: #ffcc00;
+        display:none;
+        
+		/* hint : display: none; */
+	}
+
+  </style>
+</head>
+<body>
+	<h2>자바스크립트 실습 2</h2>
+	<fieldset>
+		<legend>검색할 항목을 선택하세요.</legend>
+		<input type="radio" name="category" value="title" onclick="showDiv(this);" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" value="date" onclick="showDiv(this);"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" value="writer" onclick="showDiv(this);" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp;
+	</fieldset>
+	<hr>
+	<div id="titleBox" class="box">
+		<form method="post" action="">
+            <label>제목 : </label>
+            <input type="text">
+            <button type="submit">검색</button>
+		</form>
+	</div>
+	<div id="dateBox" class="box">
+		<form method="post" action="">
+            <label>날짜 :</label>
+            <input type="date">
+            <button type="submit">검색</button>
+		</form>
+	</div>
+	<div id="writerBox" class="box">
+		<form method="post" action="">
+            <label>작성자 :</label>
+            <input type="text">
+            <button type="submit">검색</button>
+		</form>
+	</div>
+
+	<h4>스크립트 작성이 완료되었다면 js, css 파일을 <br>
+		별도의 silsub2.js, silsub.css파일로 분리하세요.</h4>
+	<script>
+/*
+	실습 문제 2: javascript 파일
+	작성자 : OOO 
+           // 본인 이름 적어주세요
+	작성일 : yyyy-mm-dd 
+           // 오늘 날짜를 적어 주세요.
+	스크립트 설명 :
+	   실습2 에 해당하는 자바스크립트 파일입니다.
+*/
+		function showDiv(element){
+		 	// 요구한 내용을 변수, 연산자, 제어문 등을 사용하여 실행되게 하세요.
+		 	// 제목 체크시, titleBox 만 보여지게
+		 	// 날짜 체크시, dateBox 만 보여지게
+		 	// 작성자 체크시, writerBox 만 보여지게 함
+            // hint : 선택한 요소의 체크여부는 속성 중 checked라는 속성을 이용하시면 됩니다.
+            
+            // var cotegorys = document.getElementsByName('category');
+            // var title = document.getElementById('titleBox');
+            // var date = document.getElementById('dateBox');
+            // var writer = document.getElementById('writerBox');
+
+            // if(categorys[0].checked){
+            //     title.style.display = 'block';
+            // }else if(categorys[1].checked){
+            //     date.style.display = 'block';
+            // }else if(categorys[2].checked){
+            //     writer.style.display = 'block';
+            // }
+
+                
+            var category = document.getElementsByName('category');
+            var divs = document.getElementsByClassName('box');
+
+            if(category[0].checked){
+                divs[0].style.display = 'block';
+                divs[1].style.display = 'none';
+                divs[2].style.display = 'none';
+
+            }else if(category[1].checked){
+                divs[0].style.display = 'none';
+                divs[1].style.display = 'block';
+                divs[2].style.display = 'none';
+            }else if(category[2].checked){
+                divs[1].style.display = 'none';
+                divs[2].style.display = 'none';
+                divs[2].style.display = 'block';
+            }
+        }
+
+
+	
+	
+	
+
+		
+  	</script>
+</body>
+</html>

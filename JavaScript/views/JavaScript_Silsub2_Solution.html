@@ -1,0 +1,86 @@
+﻿<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습 2</title>
+  <style type="text/css">
+	fieldset {  		
+		width: 400px;		
+		text-align: center;
+		background: #dbdbdb;
+	}
+	div.box {
+		width: 500px;	
+		height: 50px;
+		box-align: center middle;		
+		margin: 10px;
+		padding: 10px;
+		background: #ffcc00;
+		display: none;
+	}
+
+  </style>
+</head>
+<body>
+	<h2>자바스크립트 실습 2</h2>
+	<fieldset>
+		<legend>검색할 항목을 선택하세요.</legend>
+		<input type="radio" name="category" value="title" onclick="showDiv(this);" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" value="date" onclick="showDiv(this);"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" value="writer" onclick="showDiv(this);" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp;
+	</fieldset>
+	<hr>
+	<div id="titleBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 제목을 입력하세요 : </label>
+			<br> 
+			<input type="search" name="title" size="50"> &nbsp;
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<div id="dateBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 날짜를 선택하세요 : </label>
+			<br>
+			<input type="date" name="start"> - 
+			<input type="date" name="end"> &nbsp; 
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<div id="writerBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 작성자 아이디를 입력하세요 : </label>
+			<br>
+			<input type="search" name="writer" size="25"> &nbsp; 
+			<input type="submit" value="검색">
+		</form>
+	</div>
+
+	<h4>스크립트 작성이 완료되었다면 js, css 파일을 <br>
+		별도의 silsub2.js, silsub.css파일로 분리하세요.</h4>
+	<script type="text/javascript">
+/*
+	실습 문제 2: javascript 파일
+	작성자 : OOO 
+           // 본인 이름 적어주세요
+	작성일 : yyyy-mm-dd 
+           // 오늘 날짜를 적어 주세요.
+	스크립트 설명 :
+	   실습2 에 해당하는 자바스크립트 파일입니다.
+*/
+		function showDiv(element){
+
+			var list = document.getElementsByClassName('box');
+
+			for(var i in list){
+				if(!isNaN(i)){
+					list[i].style.display = 'none';
+				}
+			}
+
+			var selectedDiv = document.getElementById(element.value + "Box");
+
+			selectedDiv.style.display = 'block';
+		}
+  	</script>
+</body>
+</html>

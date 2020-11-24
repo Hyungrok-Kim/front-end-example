@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 객체</title>
+    <style>
+        .area {
+            width : 600px;
+            height: auto;
+            border : 3px solid black;
+            background: lightgreen;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>자바스크립트 객체</h1>
+
+    <h3>객체 선언 및 호출 방법</h3>
+    <p>
+        자바 스크립트는 객체를 키와 값으로 나누어 선언한다.<br>
+        키를 속성으로 활용하여 해당하는 값을 식별한다.<br>
+        또한 선언 시 { } 를 이용하여 선언하며, <br>
+        속성으로는 모든 자료형이 올 수 있다.
+    </p>
+    <button onclick="test1();">실행 확인</button>
+    <div class="area" id="area1"></div>
+    <script>
+        function test1(){
+            var duck = {
+                name : '도날드',
+                type : 'bird',
+                feed : 'greentea',
+                taste : ['고소', '핵', '아메리칸']
+            };
+
+            console.log(duck);
+
+            var div1 = document.getElementById('area1');
+            
+            // 객체명['키']  형식으로 값 하나하나에 접근이 가능하다.
+            div1.innerHTML = "duck['name'] : " + duck['name'] + '<br>';
+            div1.innerHTML += "duck['taste'][0] : "  + duck['taste'][0] + '<br>';
+            div1.innerHTML += '<hr>';
+
+            // 객체명.키 형식으로도 값 접근이 가능하다.
+            div1.innerHTML += 'duck.type : ' + duck.type + "<br>";
+            div1.innerHTML += 'duck.feed : ' + duck.feed + "<br>";
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>객체의 키 식별하기</h3>
+    <p>
+        객체의 키는 모든 문자열로 작성할 수 있지만, <br>
+        만약 키 이름에 특수문자가 들어간다면 무조건<br>
+        [ ] 로 써야 한다.
+    </p>
+
+    <button onclick="test2();">실행 확인</button>
+    <div class="area" id="area2"></div>
+    <script>
+        function test2(){
+            var book = {
+                '책 제목' : '단군신화이야기',
+                '저자!@#$%^&*' : '알게뭐야' 
+            };
+            var div2 = document.querySelector('#area2');
+            // book.책 제목 ... (X)
+            // book.저자!@#$%^&* ...(X)
+            div2.innerHTML = book['책 제목'] + '<br>';
+            div2.innerHTML += book['저자!@#$%^&*'] + '<br>';
+        }
+    </script>
+
+    <hr>
+
+    <h3>객체의 메소드(함수) 변수</h3>
+    <p>
+        객체의 속성 중 함수 자료형의 속성을 호출하는 방법
+    </p>
+
+    <button onclick="test3();">실행 확인</button>
+    <div class="area" id="area3"></div>
+    <script>
+        function test3(){
+            var dog = {
+                name : '초롱이',
+                eat : function(food){
+                    // this.레퍼런스
+                    // 객체의 다른 요소(키)에 접근하려면
+                    // 반드시 this.을 붙인다.
+                    console.log(this.name + "가 " + food + "를 먹습니다.");
+                }
+            };
+            dog.eat("내 밥");
+        }
+    </script>
+
+    <hr>
+
+    <h3>객체와 for-in 반복문</h3>
+    <p>
+        객체 안의 각 속성들은 반복문으로도 접근이 가능하다! <br>
+        단, 이 때엔 일반 for문이 아니라 for-in문으로 접근해야 한다.
+
+    </p>
+
+    <button onclick="test4();">실행 확인</button>
+    <div class="area" id="area4"></div>
+    <script>
+        function test4(){
+            var fruit = {
+                name : 'Apple',
+                type : 'SE',
+                price : '300000',
+                origin : 'Vietnam',
+                season : '4 season'
+            };
+            console.log(fruit);
+
+            var div4 = document.getElementById('area4');
+
+            //for-in 반복문
+            for(var key in fruit){
+                div4.innerHTML += "key : " + key + "/ value : " + fruit[key] + '<br>';
+
+            }
+        }
+    </script>
+
+    <hr>
+    <h3>객체에 새로운 필드 추가, 삭제</h3>
+    <p>
+        처음 객체를 생성한 이후에도 속성을 추가 / 삭제할 수 있다.
+    </p>
+
+    <button onclick="test5();">실행 확인</button>
+    <div class="area" id="area5"></div>
+    <script>
+        function test5(){
+            // 속 빈 객체
+            var student = {};
+
+            console.log(student);
+
+            // 객체에 속성 추가하기
+            student.name = '곽철드래곤';
+            student['hobby'] = '깡패되기';
+            student.gender = '남성';
+            student.wish = '묻고더블로가';
+
+            console.log(student);
+
+            // 속성 삭제하기
+
+            delete(student.hobby);
+
+            console.log(student);
+
+            
+        }
+    </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

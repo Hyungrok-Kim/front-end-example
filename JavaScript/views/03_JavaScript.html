@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 태그 요소 접근하기</title>
+    <style>
+        .area{
+            width:300px;
+            height:200px;
+            border : 3px solid lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML 태그 요소 접근하기</h1>
+    
+    <h3>아이디로 접근하기</h3>
+    <div class="area" id="area1"></div>
+
+    <button onclick="testID();">아이디로 접근</button>
+    <script>
+        function testID(){
+            // var area1 = '처음 영역';
+            // . . .
+            
+            //var area1 = document.getElementById('area1');
+
+            // 단순한 ID로도 사용이 가능하나,
+            // 만약, 해당 함수 내에 변수를 아이디와 똑같이
+            // 선언했다면, HTML 아이디 요소가 아닌 변수를 찾아가므로
+            // 선언한 내용이 애매모호해져 사용을 권장하지 않는다.
+
+            area1.innerHTML = "아이디 접근 성공!";   // 이렇게만 줘도 아이디 찾아옴.
+            area1.style.backgroundColor = "plum";
+        }
+    </script>
+
+    <hr>
+
+    <h3>태그명으로 접근하기</h3>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+
+    <button onclick="testTagName();">태그명으로 접근</button>
+
+    <script>
+        function testTagName(){
+            var list = document.getElementsByTagName('li');
+
+            console.log(list);
+            console.log("list 수 : " + list.length);
+
+            var changeColor = 50;
+
+            // list[0].style.backgroundColor = "rgb(130,220, " + changeColor + ")";
+            // list[1].style.backgroundColor = "rgb(130,220, " + changeColor + ")";
+            // list[2].style.backgroundColor = "rgb(130,220, " + changeColor + ")";
+            // list[3].style.backgroundColor = "rgb(130,220, " + changeColor + ")";
+            // list[4].style.backgroundColor = "rgb(130,220, " + changeColor + ")";
+
+            for(var i = 0; i< list.length; i++){
+                console.log(list[i]);
+                                                //rgb(130,220,50);
+                list[i].style.backgroundColor = "rgb(130,220, " + changeColor + ")";
+
+                changeColor += 50;
+                
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>name 속성으로 접근하기</h3>
+    <form >
+        <fieldset>
+            <legend>취미 선택하기</legend>
+            <!-- table>(tr>(td>input:checkbox+label)*3)*2 -->
+            <table>
+                <tr>
+                    <td><input type="checkbox" name="hobby" id="movie" value="영화감상">
+                        <label for="movie">영화감상</label>
+                    </td>
+                    <td><input type="checkbox" name="hobby" id="game" value="게임">
+                        <label for="game">게임</label>
+                    </td>
+                    <td><input type="checkbox" name="hobby" id="tasty" value="맛집탐방">
+                        <label for="tasty">맛집탐방</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="hobby" id="dadlift" value="아버지들어올리기">
+                        <label for="dadlift">아버지 들어올리기</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="coffee" value="커피">
+                        <label for="coffee">커피음미</label>
+                    </td>
+                    <td><input type="checkbox" name="hobby" id="read" value="독서">
+                        <label for="read">독서</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <div class="area" id="area2"></div>
+
+    <button onclick="testName();">이름 속성으로 접근하기</button>
+
+    <script>
+        function testName(){
+            var hobbys = document.getElementsByName('hobby');
+            console.log("선택한 취미 수 : " + hobbys.length);
+
+            var result = "";
+
+            for(var i = 0; i < hobbys.length; i++){
+                if(hobbys[i].checked == true){
+                    result += hobbys[i].value + "을(를) 선택하셨습니다. <br>";
+                }
+            }
+
+            document.getElementById('area2').innerHTML = result;
+        }
+    </script>
+
+    <hr>
+    <h3>text 창의 값(value) 읽어 오기 </h3>
+    <form>
+        아이디 : <input type="text" name="userId" id="userId"> <br>
+        <button type="button" onclick="readValue();">내용 읽어오기</button>
+    </form>
+
+    <div class="area" id="area3"></div>
+
+    <script>
+        function readValue(){
+            var inputValue = document.getElementById('userId');
+
+            var result = inputValue.value;
+
+            if(result == "" || result.length == 0){
+                alert("아이디를 반드시 입력해주세요.")
+                inputValue.focus();
+
+            }else{
+                document.getElementById('area3').innerHTML = result + "님, 환영합니다.";
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>input:password 활용하여 유효성 체크(검증)하기</h3>
+    <p>
+        비밀번호를 입력받아 <br>
+        8자 미만이면 '8자 이상 입력하세요'를,
+        8자 이상이면 '로그인에 성공하였습니다.'를 ,
+        값이 비었을 경우 '비밀번호를 입력 해주세요.' 라는 문자열
+        출력하기 
+    </p>
+
+    <form>
+                            <!--input:password-->
+        비밀번호 : <input type="password" name="userPwd", id="userPwd" 
+                   placeholder="8자 이상 입력">
+                <br>
+        <button type="button" onclick="validate();">로그인하기</button>
+    </form>
+
+    <div class="area" id="area4"></div>
+
+    <script>
+        function validate(){
+             var passwd = document.getElementById('userPwd').value;
+
+             var result = "";
+             var code = 0;
+
+            // if문 사용하기
+            /*
+            if(passwd == "" || passwd.length == 0){
+                result = "비밀번호를 입력하세요.";
+            } else if (passwd.length < 8) {
+                result = "8자 이상 입력하세요.";
+            } else {
+                result = "로그인 되었습니다.";
+            }
+            */
+
+
+            if(passwd == "" || passwd.length == 0){
+                code = 0;
+            } else if(passwd.length < 8) {
+                code = 1;
+            } else {
+                code = 2;
+            }
+
+            // switch 사용하기
+            switch(code) {
+                case 0:
+                    result = "비밀번호를 입력하세요.";
+                    break;
+                case 1:
+                    result = "8자 이상 입력하세요.";
+                    break;
+                case 2: 
+                    result = "로그인 성공하였습니다.";
+                    break;
+                // default : 생략가능
+            }
+            document.getElementById("area4").innerHTML = result;
+        }
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

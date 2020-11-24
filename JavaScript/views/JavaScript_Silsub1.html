@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">  
+  <title>자바스크립트 실습</title>
+  
+  <link rel="stylesheet" href="../resources/css/silsub1.css" type="text/css">
+  <script src="../resources/js/silsub1.js" type="text/javascript"></script>
+  
+ </head>
+ <body>
+ <h1>자바 스크립트 실습</h1>
+  <p>다음 문제를 보고 요구하는 함수를 소스 코드 하단의 스크립트 부분에 작성해주세요.</p>
+  <hr>
+  <h2>자바스크립트: (internal 방식)</h2>
+  <p>버튼을 클릭하여 아래의 수식을 올바르게 바꾸어 보세요.</p>
+  <div class="division">
+  <p id="silsub1">INSERT FROM EMPLOYEE INTO ('100', '홍길동', 'HR부서', 2000000, 0.1);</p>
+  </div>
+  <br>
+  답안 작성 : <input type="text" id="result1" size="100%"> <br><br>
+  <button type="button" onclick="changeQuery();">실행 확인</button><br><br>
+
+
+  <hr>
+
+
+  <h2>prompt 창을 통해 값 입력 받기</h2>
+  <p>prompt 창을 통해 값을 입력 받고 숫자라면 홀수인지 짝수인지<br>
+     숫자가 아니라면 숫자가 아니라고 아래 영역에 출력하세요.
+     </p>
+  <div class="division">
+  <p id="silsub2">~~~ 결과 확인 창입니다 ~~~</p>
+  </div>
+  <br>
+	<button type="button" onclick="checkOddEven();">숫자 확인</button><br>
+	<br>
+	<hr>
+	<h2>이미지 변경하기</h2>
+	<p>아래의 이미지를 클릭 했을 때 android.gif 이미지로 변경하는<br>onclick 이벤트 함수, changeImage() 를 구현하세요.</p>
+	<img id="image1" src="../resources/images/button.jpg" width="150" height="150" border="0" alt="" onclick="changeImage();"><br>
+	<br>
+	<hr>
+	<h2>CSS 스타일 변경하기</h2>
+	<p>아래의 글자색을 navy로 변경하세요.</p>
+	<div class="division" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+	    <p id="silsub3" style="color:lightgoldenrodyellow;">JavaScript 언어는 오늘날 4차 산업 혁명의 핵심언어로 각광받아,<br> 현재 IT업계에서 가장 많이 사용되는 트랜드 No.1 언어입니다.<br> 생각보다 어렵고 지루하더라도 버티고, 힘내서 JS 공부해 봅시다.<br> 화이팅! </p>
+	</div>
+	<br>
+	<button type="button" onclick="changeCSS();">스타일바꾸기</button>
+	<br><br><br><br>
+	<hr>
+	
+	<h2>간이 계산기 만들기</h2>
+	첫번째 값 : <input id="num1"><br>
+	두번째 값 : <input id="num2"><br>
+	<input type="button" value="+" onclick="calculator(this.value);"> 
+	<input type="button" value="-" onclick="calculator(this.value);"> 
+	<input type="button" value="x" onclick="calculator(this.value);"> 
+	<input type="button" value="/" onclick="calculator(this.value);"> 
+    <input type="button" value="%" onclick="calculator(this.value);"> 
+    <select name="cal" id="cal" onchange="calculator(this.value);">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="x">x</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <br><br>
+    계산결과 : <span id="calc"></span>
+    <h6>만약... &lt;select&gt;와 onchange속성으로 해결한다면..??</h6>
+    <hr>
+    <br>
+
+	<h2>외부에서 CSS, JS 파일 읽어오기</h2>
+	<p id="if_last">현재 작성된 CSS와 JavaScript 소스 코드를 각각 silsub1.css, silsub1.js 파일로 만들어서<br>
+	     resource내에 css 폴더와 js 폴더에 저장한 뒤 현재 문서에 추가하여 사용하세요.</p>
+	<br>
+	<br>
+	
+
+	<br>
+	
+	<br>
+	
+	<br>
+
+	<br>
+	
+	<br>
+	
+	<br>
+	
+	<h1 style="margin-left:37%;margin-right:auto;" onclick="finish(this);">수고하셨습니다.</h1>
+	
+	
+	<br><br><br>
+	<div id="bun" style="display:none">
+	
+	<p>Ex) 번외 문제</p>
+	<br><br>
+	<h1>하노이의 탑</h1>
+	<img class="bundle" src="../resources/images/hanoi.jpg" alt="이미지 예시1">
+	<p>하노이의 탑이란, 세 개의 기둥과 이 기둥에 꽂을 수 있는 크기가 다양한 <br>원판들이 있고, 한 기둥의 원판들을 반대편의 기둥에 작은 것이 위에 있도록<br> 순서대로 쌓는 퍼즐을 말합니다. </p>
+	<p>
+        이 문제는 원판의 개수를 선정하여, 하노이의 탑의 최소 이동 경로를 구하고<br> 해당 이동 경로에 대해 trace log(추적 기록)를 기록하는 문제입니다.<br> 아래의 예시를 참조하여 hanoiStart() 함수를 완성해 보세요.<br><b style="color:red;">(컴퓨터의 사양을 고려하여 테스트는 최대 5 개까지만 가능하도록 조건을 설정해주세요.)</b><br><br>
+        	<img class="bundle" src="../resources/images/hanoi.gif" alt="이미지 예시2">
+	PS1 : 이 문제는 취업 코딩 테스트 문제로도 종종 출제 됩니다.<br>PS2 : 함수 내부에서 자기 자신을 호출하는 재귀함수의 개념을 활용합시다.</p>
+	원판 개수 : <input type="number" id="hanoi" min="1" max="5" >&nbsp;개&nbsp;&nbsp;
+   <button onclick="hanoiStart();">퍼즐 풀기</button><br>
+    <br>
+    <div class="division" id="bundle_hanoi">
+       <br>
+        결과 예시)<br>
+        원판[1] : A -------&gt; C<br>
+        원판[2] : A -------&gt; B<br>
+        원판[1] : C -------&gt; B<br>
+         . . .<br>
+        --------------<br>
+        총 원판 : 3 개<br>
+        최소 이동 횟수 : 7 번<br><br>
+    </div></div>
+	<br><br>
+	<br><br><br><br>
+<script type="text/javascript">
+    
+    function finish(obj){
+        obj.style.color ="MidnightBlue";
+        document.getElementById('bun').style.display = "block";
+    }
+    
+    function hanoiStart(){
+        // 함수의 로직을 작성하세요.
+    };
+</script>
+ </body>
+</html>

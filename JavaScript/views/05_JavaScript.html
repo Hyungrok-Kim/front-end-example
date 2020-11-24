@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>String과 Math</title>
+    <style>
+        .area{
+            width : 600px;
+            height: 400px;
+            border : 1px solid black;
+            background : lightpink;
+        }
+    </style>
+</head>
+<body>
+    <h1>String과 Math</h1>
+
+    <h3>String과 기본 제공 요소</h3>
+    <p>
+        자바스크립트에서는 "", ''로 묶여있는 값을 문자열이라 한다.
+    </p>
+
+    <button type="button" onclick="showStringFn();">확인하기</button>
+
+    <div class="area" id="area1"></div>
+    <script>
+        function showStringFn(){
+            var area1 = document.getElementById('area1');
+            var str1 = "Moni Mani Mi";
+
+            area1.innerHTML = "toUpperCase() : " + str1.toUpperCase() + "<br>";
+            area1.innerHTML += "toLowerCase() : " + str1.toLowerCase() + "<br>";
+            area1.innerHTML += "length : " + str1.length +"<br>";
+            area1.innerHTML += "a의 위치 : " + str1.indexOf('a') + "<br>"; 
+             // 0 부터 시작하며, 빈칸도 포함한다.
+            area1.innerHTML += "문자열 일부 출력 : " +str1.substring(5, 10) + "<br>";
+            for(var i = 0 ; i < str1.length ; i++){
+                area1.innerHTML += "[" + i + "] : " + str1.charAt(i) + "<br>";    
+            }
+            area1.innerHTML += "split() : " + str1.split(" ") + "<br>";
+            console.log(str1.split(' '));
+        }
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음</a>
+</body>
+</html>

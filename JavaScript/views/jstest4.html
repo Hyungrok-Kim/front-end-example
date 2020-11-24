@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script>
+        /*
+            load 이벤트 :
+                웹 문서가 로드(읽혀질 때)될 때 필요한 스크립트 내용을 
+                바로 실행 할 수 있도록 하는 이벤트    
+        */
+        function start(){
+            console.log("문서 로드 완료!");
+        }
+
+    </script>
+    <title>Document</title>
+</head>
+<body onload="start();">
+ 
+
+
+    <button onclick="console.log('문서 로드 완료!')">인라인방식</button>
+
+
+
+
+    
+    <button onclick=" window.alert('클릭하였음');"></button>  
+
+    <button onclick="testClicked();"></button>
+    <script>
+        function testClicked(){
+            window.alert("클릭하였음");
+        }
+
+    </script>
+</body>
+</html>

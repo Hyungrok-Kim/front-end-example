@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 함수 - 1 -</title>
+</head>
+<body>
+    <h1>자바스크립트 함수 - 1 -</h1>
+
+    <h3>function 함수명() {. . .}</h3>
+    <button onclick="test1();">실행 확인</button>
+    <script>
+        function test1(){
+            alert('test1() 함수 실행 확인');
+
+        }
+    </script>
+
+    <h3>즉석 실행 함수 : (function(){ . . . })();</h3>
+
+    <p id="p1">
+        ~~~~ 내용 ~~~~~
+    </p>
+    <script>
+        (function(){
+            // document.getElementById('p1').innerHTML = '즉석 실행 함수';
+            document.querySelector('#p1').innerHTML = '즉석 실행 함수';
+        })();
+    </script>
+
+    <h3>익명 함수 : 함수명 = function() { . . . }</h3>
+    <button onclick = "test2();">실행 확인</button>
+    <script>
+        /* 일반 형식
+        var test2 = function(){
+            alert("내가 바로 익명 함수!");
+        } */  
+
+        // 축약형
+        var test2 = () => {
+            alert("익명 함수 테스트 2");
+        }
+    </script>
+
+    <hr>
+
+    <h1>함수의 전달인자(arguments)와 매개 변수(parameter)</h1>
+    <h3>기본적인 전달인자와 매개 변수</h3>
+    <button id="btn1">실행확인</button>
+    <p id="p2"></p> 
+   
+    <script>
+        document.getElementById('btn1').onclick = function(){
+            var result = window.prompt('Plz leave a message');
+
+            test3(result); // 위에서 작성한 result를 test3 함수에 전달인자로 보낸다.
+        }
+
+        function test3(msg){    // 매개 변수
+                                // result(전달인자)로 전달받았으나 test3은 msg(매개 변수)로 쓰겠다!
+            document.getElementById('p2').innerHTML += msg + '<br>';
+
+        }
+    </script>
+   
+    <h3>전달 인자와 매개 변수 갯수가 서로 다른 경우</h3>
+    <button id="btn2">실행 확인</button>
+    <p id="p3"></p>
+    <script>
+        document.querySelector('#btn2').onclick = function(){
+            // 1. 주어진 매개 변수보다 전달 인자가 많을 경우
+            // 초과한 전달 인자는 무시된다.
+            // test4('아이언맨', '슈퍼솔저');
+
+
+            // 2. 주어진 매개 변수보다 전달 인자가 적을 경우
+            // 전달 받지 못한 매개 변수는 'undefined'라는 값으로
+            // 자동 설정된다.
+            test4();
+        }
+        
+        function test4(value){
+            document.querySelector('#p3').innerHTML += value + '<br>';
+        }
+
+    </script>
+   
+   
+   <h3>함수의 결과 반환 처리(return)</h3>
+    <button onclick="test5();">실행 확인</button>
+    <p id="p4"></p>
+    <script>
+        function test5(){
+            var result = document.getElementById('p4');
+
+            result.innerHTML += sum2Num(10,20) + '<br>';
+        }
+
+        function sum2Num(num1, num2){
+            return num1 + num2;
+        }
+    </script>
+   
+   <h3>가변 인자 함수</h3>
+   <button onclick="test6();">실행 확인</button>
+   <p id="p5"></p>
+    <script>
+        function test6(){
+            sumAll(1,2,3,4,5);
+            sumAll(10,20,30,40,50,60,70,80,90,100);
+        }
+
+        function sumAll(){
+            console.log("arguments : " + arguments);
+            console.log("전달 인자 갯수 : " + arguments.length);
+            console.log(arguments);
+
+            var sum = 0;
+            
+            for(var i = 0; i < arguments.length; i++){
+                sum += arguments[i];
+            }
+
+            document.getElementById('p5').innerHTML += "합계 : " + sum + '<br>';
+        }
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

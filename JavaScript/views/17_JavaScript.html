@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   
+    <title>DOM 객체</title>
+    <style>
+        .area{
+            width : 800px;
+            height : auto;
+            border : 3px solid darkred;
+            padding : 5px;
+            background : blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM 객체</h1>
+    <p>
+        현재 웹 문서에서 다루는 요소들
+
+    </p>
+
+    <h3>텍스트가 있는 요소(노드) 만들기</h3>
+    <button onclick="test1();">실행 확인</button>
+    <div class="area" id="area1"></div>
+    <script>
+        function test1(){
+            // 요소 생성
+            var title = document.createElement('h3');
+
+            // 안에 들어갈 내용 생성(노드)
+            var textNode = document.createTextNode('타이타닉');
+
+            // 노드와 요소 합치기
+            title.appendChild(textNode);
+
+            // 만든 요소를 div1에 추가하기
+            document.getElementById('area1').appendChild(title);
+
+        }
+    </script>
+
+    <h3>문자열(텍스트)이 아닌 요소 추가하기</h3>
+    <button onclick="test2();">실행</button>
+    <div class="area" id="area2"></div>
+    <script>
+        function test2(){
+            var imageTag = document.createElement('img');
+
+            // img 태그 속성 추가
+            imageTag.src = 
+                'https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2F20141229_131%2F7lovei_1419857169235GJd23_JPEG%2Fmug_obj_20141229214609557.jpg&type=sc960_832'
+            imageTag.width = 150;
+            imageTag.height = 200;
+
+            // 태그가 지원하지 않는 속성은 추가할 수 없다.
+            imageTag.iamhungry = true; // 실제 HTML에서는 무시된다.
+
+            document.getElementById('area2').appendChild(imageTag);
+            // append와 appendChild의 차이는 기능은 똑같으나 append는 배열 등 여러 노드를 추가할 수 있고
+            // appendChild는 오직 하나의 노드만 추가할 수 있다. 
+
+        }
+    </script>
+
+    <h3>innerHTML</h3>
+    <button onclick="test3();">실행 확인</button>
+    <div class="area" id="area3">
+        <table id="board">
+            <!--thead>tr>th*5-->
+            <thead>
+                <tr>
+                    <th>글 번호</th>
+                    <th>글 제목</th>
+                    <th>작성자</th>
+                    <th>조회 수 </th>
+                    <th>작성 일자</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <script>
+        var boardNo = 1;
+
+        function test3() {
+            var title = "게시글 제목입니다.";
+            var writer = "user01";
+            var readCount = 10; 
+            var writeDate = new Date(); 
+
+            var table1 = document.getElementById('board');
+            
+            // 요소. innerHTML : 해당 요소안의 HTML 코드 공간 
+            table1.innerHTML += "<tr>"
+                                +"<td>" + (boardNo++) + "</td>"
+                                +"<td>" + title + "</td>"
+                                +"<td>" + writer + "</td>"
+                                +"<td>" + readCount + "</td>"
+                                +"<td>" + writeDate.getFullYear() + "-"
+                                + writeDate.getMonth() + "-"
+                                + writeDate.getDate() + "</td>"
+                                + "</tr>";
+
+        }
+    </script>
+
+    <h3>innerHTML 응용</h3>
+    게시글 제목 : <input type="text" id="title"> <br>
+    작성자 : <input type="text" id="userName"> <br>
+    내용 : <textarea id="content"></textarea> <br>
+    <button onclick="test4();">제출</button> <br><br>
+
+    <div class="area" id="area4">
+        <!-- table>thead+tbody#board_ex -->
+        <table>
+            <thead>
+                <tr>
+                    <th>글 번호</th>
+                    <th>글 제목</th>
+                    <th>작성자</th>
+                    <th>조회수</th>
+                    <th>작성일자</th>
+                </tr>
+            </thead>
+            <tbody id="board_ex">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var bno = 1;
+
+        function test4(){
+            var title = document.getElementById('title').value;
+            var writer = document.getElementById('userName').value;
+            var readCount = 0;
+            var writeDate = new Date();
+            writeDate = writeDate.getFullYear() + "-" + 
+                        (writeDate.getMonth()+ 1) + "-" +
+                        writeDate.getDate();
+
+            console.log(title + " / " + writer + " / " + writeDate);
+
+            var tbody = document.getElementById('board_ex');
+
+            tbody.innerHTML += "<tr>" + "<td>" + (bno++) + "</td>"
+                            + "<td>" + title + "</td>" +
+                                "<td>" + writer + "</td>" +
+                                "<td onclick='readCount(this);'>" + readCount + "</td>" +
+                                "<td>" + writeDate + "</td>" + "</tr>"; 
+
+
+        }
+
+        function readCount(obj){
+            obj.innerHTML = parseInt(obj.innerHTML) + 1;
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>자바스크립트로 스타일 지정하기</h3>
+    <button onclick="test5();">실행 확인</button>
+    <div class="area" id="area5" style="height : 200px;"></div>
+    <script>
+        function test5(){
+            var div5 = document.getElementById('area5');
+
+            div5.style.backgroundColor = 'lightgreen';
+            div5.style.borderRadius = "50px";
+            div5.style.transition = "all 2s";
+
+        }
+    </script>
+
+    <h3>노드(요소) 삭제하기</h3>
+    <button onclick="test6();">요소 삭제하기</button>
+    <div class="area" id="area6"></div>
+    <script>
+        function test6(){
+            document.getElementById('area6').remove();
+        }
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

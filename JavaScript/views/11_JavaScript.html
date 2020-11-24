@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>클로져 함수</title>
+</head>
+<body>
+    <h1>클로져 함수</h1>
+
+    <h3>지역 변수와 변수의 범위</h3>
+    <p>
+        지역 변수, 즉 함수 내부에서 선언된 변수는 함수 밖에서 <br>
+        사용할 수 없다.
+    </p>
+    <script>
+        function test1(){
+            var name = '홍길동';
+
+        }
+
+        alert(name);
+    </script>
+
+    <hr>
+    <h3>클로져</h3>
+
+    <p>
+        지역변수는 함수가 실행될 때 생성되고, 함수가 종료될 때 소멸한다.<br>
+        그러나 함수를 반환하는 함수(클로져)를 사용하면<br>
+        함수 내부의 변수나 계산된 내용도 밖으로 꺼내어 올 수 있다.
+    </p>
+
+    <button onclick="test2()();">실행 확인</button>
+    <script>
+        function test2(){
+            // 리턴으로 함수를 돌려주는 게 클로져
+            var name = '홍길동';
+
+            return function(){
+                alert(name + "님 환영합니다!");
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>여러 개의 클로져 사용하기</h3>
+    <button onclick="test3(this);">Java</button> &nbsp; &nbsp;
+    <button onclick="test3(this);">JavaScript</button>
+    
+    <script>
+        function test3(btn){
+            // console.log(btn);
+            var major = btn.innerHTML;
+            
+            alert(test4(major)());
+        }
+
+        function test4(major){
+            var output = "나는 " + major + "를 사랑합니다.";
+
+            return function(){
+                return output;
+                // return "나는 HTML을 사랑합니다."; 
+            }
+        }
+    </script>
+
+</body>
+</html>

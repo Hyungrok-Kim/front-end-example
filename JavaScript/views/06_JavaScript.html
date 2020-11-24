@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>데이터 형변환</title>
+    <style>
+        .area{
+            width : 300px;
+            height: 250px;
+            background : beige;
+        }
+    </style>
+</head>
+<body>
+    <h1>데이터 형변환</h1>
+
+    <h3>문자열 + 숫자</h3>
+    <p>자바와 동일하게 문자열 + 숫자 = 문자열</p>
+
+    <button onclick="testPlus();">실행 확인</button>
+    <div class="area" id="area1"></div>
+    <script>
+        function testPlus(){
+            var result1 = 7 + '7'; // 77
+            var result2 = '7' + 7; // 77
+            var result3 = 7 + 7 + '7'; // 147
+
+            var div1 = document.getElementById('area1');
+            div1.innerHTML = result1 + "<br>" + result2 + "<br>" + result3;
+        }
+    </script>
+
+    <h3>숫자 파싱하기(문자열 -> 숫자)</h3>
+    <p>
+        Number(), parseInt(), parseFloat(), String() 함수 <br>
+        숫자를 문자로, 문자를 숫자로 변환할 수 있다.
+    </p>
+
+    <button onclick="testParse();">실행 확인</button>
+
+    <div class="area" id="area2"></div>
+
+    <script>
+        function testParse(){
+            var num1 = 2.5;
+            var num2 = "3";
+            var num3 = '50$';
+
+            var div2 = document.getElementById('area2');
+
+            div2.innerHTML = num1 + "<br>";
+            div2.innerHTML += num2 + "<br>";
+            div2.innerHTML += num3 + "<br>";
+
+            // Number();
+            // 주어진 문자열이 모두 숫자여야만 변환해주는 함수
+            div2.innerHTML += "Number(num1) : " + Number(num1) + "<br>";
+            div2.innerHTML += "Number(num2) : " + Number(num2) + "<br>";
+            div2.innerHTML += "Number(num3) : " + Number(num3) + "<br>";
+            // NaN : Not a Number : 숫자 변환 불가
+
+            // parseInt();
+            // 앞에서부터 숫자로 변환해가며 숫자로 바꿀 수 있는 최대한을
+            // 변경해주는 함수
+            div2.innerHTML += "parseInt(num1) : " + parseInt(num1) + "<br>";
+            div2.innerHTML += "parseInt(num2) : " + parseInt(num2) + "<br>";
+            div2.innerHTML += "parseInt(num3) : " + parseInt(num3) + "<br>";
+            // parseInt는 Int로 나오기 때문에 실수형은 parseFloat으로 처리하면 됨.
+        }
+    </script>
+</body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="index.html">처음</a>
+<br>
+<br>
+<br>
+</html>

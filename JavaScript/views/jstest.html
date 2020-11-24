@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="memberenroll" method="post">
+    <ul>
+        <li><label for="userid">아이디</label><input type="text" id="userid"></li>
+        <li><label for="userpwd">패스워드</label><input type="password" id="userpwd"></li>
+        <li><label for="pwdchk">패스워드확인</label><input type="password" id="pwdchk"></li>
+        <li>
+            <label for="">
+                관심분야(java,html/css,javascript/jquery, 데이터베이스 중 다수 값이면, 로 구분하여 작성)
+            </label><br><input type="text" list="op" placeholder="java, html/css, javascript/jquery, 데이터베이스중, 로 구분" size="60">
+            <datalist id="op">
+                <option value="java"></option>
+                <option value="html/css"></option>
+                <option value="javascript/jquery"></option>
+                <option value="데이터베이스"></option>
+            </datalist>
+        </li>
+
+
+        <li><label for="">이메일</label><input type="url"></li>
+        <li>
+            <label for="">
+                지식정도(상,중,하로 작성)
+            </label>
+            <select name="" id="" >
+                <option value="상" selected>상</option>
+                <option value="중">중</option>
+                <option value="하">하</option>
+            </select>
+        </li>
+        <li>
+            <label for="">고수</label>
+            <select name="" id="">
+                <option value="고수">고수</option>
+                <option value="중수">중수</option>
+                <option value="하수">하수</option>
+            </select>    
+        </li>
+        <li>
+            <label for="">전화번호</label>
+            <select name="" id="">
+                <option value="">010</option>
+                <option value="">011</option>
+                <option value="">016</option>
+                <option value="">019</option>
+            </select>
+            -
+            <input type="text">
+            -
+            <input type="text">
+            
+        </li>
+        <li>
+            <button type="submit" onclick="ivalid();">회원가입</button>
+            <button type="reset">취소</button>
+        </li>    
+    </ul>
+
+    </form>
+
+    
+    <script>
+        function ivalid(){
+            var ridv = /^[a-z][A-Za-z0-9_-]{7,11}$/
+            
+
+            var idv = document.getElementById('userid').value;
+
+            if(ridv.test(idv)){
+                    pvalid();
+            }else{
+                    alert("영문자와 숫자로 8글자 이상 12글자 이하, 숫자 하나이상 기호문자 한개로 구성되어야 합니다.");
+            }
+        }
+
+        function pvalid(){
+            var rpwd = /^[A-Za-z][A-Za-z0-9_-]{7,11}$/
+
+            var pwdv = document.getElementById('userpwd').value;
+
+            if(rpwd.test(pwdv)){
+                pwdchk();
+            }else{
+                alert("암호는 영문자와 숫자로 8글자이상 12글자 이하, 숫자 하나 이상 기호문자 한 개를 입력하세요.");
+            }
+        }
+        
+        function pwdchk(){
+            var pwdv = document.getElementById('userpwd').value;
+            var chkpwd = document.getElementById('chkpwd').value;
+
+            if(pwdv.equal(chkpwd)){
+                alert("비밀번호 일치");
+            }else{
+                alert("비밀번호 불일치");
+            }
+        }
+
+
+    </script>
+
+    <button id="replybtn" onclick="ta();">댓글 등록<br>
+        <textarea name="" id="reply" cols="30" rows="10" hidden></textarea>
+    </button>
+    
+    <script>
+        function ta(){
+            var ta = document.getElementById('reply');
+
+            $('#reply').click(function(){
+                reply.style.display = 'block';
+            });
+
+        }
+
+        
+
+    </script>
+</body>
+
+
+</html>

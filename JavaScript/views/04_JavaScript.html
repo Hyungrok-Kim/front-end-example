@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>변수와 자료형</title>
+    <style>
+        .area {
+            width : 300px;
+            height : 300px;
+            border : 1px solid black;
+            background : lightcyan;
+        }
+    </style>
+    <script>
+        // 전역변수 : 
+        //   소스코드를 웹 브라우저가 읽어 올 때
+        //   내부 인터프리터에 의해 자동으로 window 객체의 필드가 된다.
+
+        var str = "나는야 전역 변수";
+        str2 = "야나두 전역 변수!";
+
+        // 웹 문서가 로드될 때 동작할 즉석 이벤트
+        window.onload = function start(){
+            // 지역 변수 선언
+            var str = "지역 변수";
+
+            // 변수 호출하기
+            console.log(str);            // 지역 변수
+            console.log(window.str);     // 전역 변수
+            console.log(this.str);       // 전역 변수
+
+            // 지역 변수 선언 시 반드시 앞에 var를 붙여야 한다.
+
+            var str3 = "지역 변수-3";
+            
+            // 지역 변수는 window / this 수식어를 붙일 수 없다. 
+            console.log(str3);
+            console.log(window.str3);
+            console.log(this.str3);
+
+            // 함수 안에 변수를 선언할 때
+            // var를 붙이지 않으면 자동으로 전역변수가 된다.
+            whoAmI = "난 무슨 변수 일까요?";
+
+            showWhoAmI();
+        }
+
+        function showWhoAmI(){
+
+            console.log(whoAmI);
+            console.log(window.whoAmI);
+            console.log(this.whoAmI);
+        }
+    </script>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    
+    <h3>변수 선언 </h3>
+    <p>
+        함수 내부에서 var 변수명; 으로 선언하면 지역변수가 된다. <br>
+        함수 외부에서 선언하면 가장 첫부분에 var 변수명; 혹은 변수명 으로<br>
+        선언하였을 때 전역 변수가 된다. <br>
+        전역변수와 지역변수가 같은 이름일 경우, 지역변수가 우선권을 지닌다. <br>
+        때문에 함수 내부에서 전역 변수를 사용할 때에 window.변수명 혹은 this.변수명<br>
+        형식으로 접근한다.
+    </p>
+
+    <h3>개발자 도구에서 실행내용을 확인해보세요</h3>
+
+    <hr>
+
+    <h3>자료형</h3>
+    <p>
+        <!-- 자바스크립트 동적 바인딩에 대한 설명 -->
+        자바스크립트에서는 자료형 별 변수 타입을 지정하지 않는다.<br>
+        처음 변수를 선언할 때 단순히 '변수를 쓰겠다' 라고만 인식하고 <br>
+        실제 변수의 공간은 값이 들어가서 사용할 때 만들어진다.<br>
+        자바 스크립트 에서 자료형을 선언하는 시기는 변수에 리터럴 값이 들어갈 때,<br>
+        해당 변수 값의 자료형을 보고 매칭시켜준다.
+    </p>
+
+    <button type="button" onclick="typeTest();">자료형 테스트</button>
+
+    <br><br>
+
+    <div class="area" id="area1"></div>
+
+    <script>
+        function typeTest(){
+            var name = "홍길동";
+            var age = 10;
+            var army = true;
+            var hobby = ['수렵', '무술' ,'기공파대련'];// 배열
+            var buha = {
+                name : '둘리',
+                age : 58,
+                home : '한양' 
+            };          //자바 스크립트 방식의 객체 선언
+
+            var testFn = function(num1, num2){
+                return num1 + num2;
+            }
+            // 화살표 함수 (short hand)
+            // var testFn2 = (num1,num2) => {
+            //     return num1 + num2;
+            // }
+
+            // 변수화한 함수 사용하기 
+            console.log("testFn : " + testFn(10, 20))
+
+            var div1 = document.getElementById('area1');
+
+            div1.innerHTML += "문자열 변수 : " + name + "<br>";
+            div1.innerHTML += "숫자 변수 : "  + age + "<br>";
+            div1.innerHTML += "논리 변수 : "  + army + "<br>";
+            div1.innerHTML += "배열 : " + hobby + "<br>";
+            div1.innerHTML += "객체 : " + buha + "<br>";
+            div1.innerHTML += "함수 : " + testFn() + "<br>";
+
+            console.log("--------------------");
+            console.log("name : " + typeof(name));
+            console.log("age : " + typeof(age));
+            console.log("army : " + typeof(army));
+            console.log("hobby : " + typeof(hobby));
+            console.log("buha : " + typeof(buha));
+            console.log("testFn : " + typeof(testFn));
+        }
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   
+    <title>자바 스크립트 개요</title>
+    <!-- 외부에서 작성한 js 파일 불러오기-->
+    <script src="../resources/js/first.js"></script>
+    <!-- src 경로의 자바 스크립트를 읽어와 태그 사이의 내용에 추가하기 때문에 
+         그 안에는 직접 소스 코드를 작성해선 안된다.
+    -->
+</head>
+<body>
+    <h1>자바 스크립트 개요</h1>
+
+    <dl> <!-- 설명 문구들을 작성하는 설명 목록 --> 
+        <dt>스크립트 언어란?</dt>  <!--설명의 제목-->
+        <dd>                       <!--설명의 내용-->
+            사용자의 요구에 맞게 수행되도록 코드를 간결하게 <br>
+            작성하는 언어, 배우기 쉽고 매우 빠르게 구현이 가능하다.
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>자바 스크립트</dt>
+        <dd>
+            ECMA 스크립트 표준을 따르는 대표적인 웹 기술 구현 언어, <br>
+            웹 브라우저에서 가장 많이 사용하는 인터프리터언어로 <br>
+            객체 지향 언어이다.
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>사용 형식</dt>
+        <dd>
+            <ol>
+                <li>inline 방식 : <br>
+                    태그 내에 코드를 직접 작성하는 방식(간단한 소스 코드일 경우)
+                </li>
+                <li>internal 방식 : <br>   
+                    script 태그를 선언하여 내부에 <br>
+                    소스 코드를 방식
+                </li>
+                <li>external 방식 : <br>
+                    외부의 .js 파일을 가져와 현재 웹 문서에 등록하는 방식<br>
+                    (like css link 태그로 가져오는 방식)
+                </li>
+            </ol>
+        </dd>
+    </dl>
+    <dl>
+        <dt>작성 시 명심할 사항</dt>
+        <dd>
+            소스코드는 함수(≒ 메소드) 단위로 작성하고, 이벤트 속성을 통해 실행한다.<br>
+            이벤트 속성은 태그마다 지원하는 종류가 다를 수 있으며 <br>
+            일반적으로 on이벤트명 = 실행할 함수명([전달인자 | 매개변수]) 으로<br>
+            이벤트와 스크립트를 연결(binding) 시킨다.
+        </dd>
+    </dl>
+
+
+    <hr>
+    <h2>태그에 직접 스크립트를 작성하여 구동 확인하기(inline 방식)</h2>
+    
+    <button onclick="alert('Hello JavaScript!!');">함수 실행 확인</button>
+
+    <h2>script 태그를 활용하여 내부에서 작성한 소스코드 실행하기(internal 방식)</h2>
+    <button onclick="testFn();">함수 실행 확인</button>
+    <script>
+        // 스크립트 한 줄 주석
+        /*
+            범위 주석
+        */
+
+        // 자바 스크립트는 접근제한자, 반환 자료형이 없다!
+        function testFn(){
+            window.alert("Welcome to the HelloWorld!");
+        }
+    </script>
+
+    <h2>별도로 작성한 스크립트 함수 실행하기 (external 방식)</h2>
+    <button onclick="sample();">실행 확인</button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

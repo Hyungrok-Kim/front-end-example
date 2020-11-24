@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 객체 배열</title>
+    <style>
+        .area { 
+            width : 700px;
+            height : auto;
+            padding: 10px;
+            border : 3px solid brown;
+            background: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>자바스크립트 객체 배열</h1>
+
+    <h3>객체와 배열 사용하여 데이터 확인하기</h3>
+    <button onclick="test1();">실행 확인</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function test1(){
+            var student0 = {
+                name : '홍길동',
+                java : 60,
+                oracle : 80,
+                HTML : 100,
+                CSS : 20
+            };
+
+            var student1 = {
+                name : '홍길서',
+                java : 70,
+                oracle : 70,
+                HTML : 70,
+                CSS : 70
+            };
+
+            var student2 = {
+                name : '홍길남',
+                java : 80,
+                oracle : 90,
+                HTML : 70,
+                CSS : 30
+            };
+
+            var student3 = {
+                name : '홍길북',
+                java : 80,
+                oracle : 80,
+                HTML : 90,
+                CSS : 80
+            };
+
+            var student4 = {
+                name : '헤딩골',
+                java : 70,
+                oracle : 80,
+                HTML : 40,
+                CSS : 30
+            };
+
+            var stuList = [];
+
+            stuList.push(student0);
+            stuList.push(student1);
+            stuList.push(student2);
+            stuList.push(student3);
+            stuList.push(student4);
+
+            console.log(stuList);
+
+            // 각 객체 별로 합계와 평균을 각각 산출하는 함수 추가하기
+            for(var i = 0; i < stuList.length; i++){
+                stuList[i].getSum = function(){
+                    return this.java + this.oracle + this.HTML + this.CSS;
+                };
+
+                stuList[i].getAvg = function(){
+                    return this.getSum() / 4;
+                };
+            }
+
+            // 실습 1
+            // for in 반복문을 사용하여
+            // 학생의 모든 정보를 div1에 출력하세요,
+            // 이름 : 000, 총점 : 000 , 평균 : 000
+            var div1 = document.getElementById('area1');
+            
+            // for(var i=0; i < stuList.length; i++){
+            //     div1.innerHTML += '이름 : ' + stuList[i].name 
+            //                     + '총점 : ' + stuList[i].getSum() 
+            //                     + '평균 : ' + stuList[i].getAvg() + '<br>';
+            // }
+
+            for(var i in stuList){
+                div1.innerHTML += '이름 : ' + stuList[i].name 
+                                + '총점 : ' + stuList[i].getSum() 
+                                + '평균 : ' + stuList[i].getAvg() + '<br>';
+            }
+        }
+
+    </script>
+
+    <hr>
+
+    <h3>자바스크립트에서 생성자 호출하기</h3>
+    <button onclick="test2();">실행 확인</button>
+    <div class="area" id="area2"></div>
+    <script>
+        // 자바 스크립트 생성자
+        function Book(title, author, price){
+            // 1. 필드 속성 정의
+            this.title = title;
+            this.author = author;
+            this.price = price;
+
+            // 객체 함수 정의
+            this.getTitle = function(){
+                return this.title;
+            }
+
+            this.toString = function(){
+                return "도서 제목 : " + this.title + "저자 : " + this.author
+                        + "가격 : "  + this.price + "<br>";
+            }
+        }
+
+        function test2(){
+            var myBook = new Book('어린왕자', '생택쥐페리', 15000);
+
+            var div2 = document.getElementById('area2');
+
+            div2.innerHTML += myBook.toString();
+        }
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

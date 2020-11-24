@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>내부 함수 중첩 사용</title>
+</head>
+<body>
+    <h3>내부 함수 중첩 사용</h3>
+    피타고라스 : A^2 + B^2 = C^2<br>
+    삼각형 밑변(A) : <input type="number" min="1" max="10" id="triW"> <br>
+    삼각형 높이(B) : <input type="number" min="1" max="10" id="triH"> <br>
+    <button onclick="test1();">빗변 구하기</button>
+
+    <p id="p1"></p>
+    <script>
+        function test1(){
+            var w =document.getElementById('triW').value;
+            var h =document.getElementById('triH').value;
+
+            document.getElementById('p1').innerHTML += "빗변 : " +logic(w,h) + "<br>";
+        }
+
+        function logic(w,h){
+            // 함수 안의 함수 선언
+            function pow(num){
+                return num * num;
+            }
+
+            return Math.sqrt(pow(w) + pow(h));
+        }
+    </script>
+
+    <h3>재귀 함수(recursive function) </h3>
+    <h4>자기 자신을 재호출하는 함수</h4>
+
+    <pre>
+        5! : 5 * 4 * 3 * 2 * 1
+
+    </pre>
+
+    <input type="number" id="fac">
+    <button onclick="test2();">실행 확인</button>
+    <p id="p2"></p>
+
+    <script>
+        function test2(){
+            var num = document.getElementById('fac').value;
+            
+            console.log("-----------[ for 방식 ] -----------");
+            console.log(factorial_for(num));
+            console.log("-----------[재귀 호출 방식 ] ------");
+            console.log(factorial_re(num));
+
+        }
+
+        // 1. for문을 활용하는 방식
+        function factorial_for(num){
+            for(var i = (num - 1); i > 0; i--){
+                num *= i;
+            }
+
+            return num;
+
+        }
+
+        // 2. 재귀 호출을 활용한 방법
+        // 재귀 호출은 무한 반복이 돼서 컴퓨터에 부하가 갈 수 있으므로 
+        // 특정한 상황이 아니면 쓰지 않는 것을 권고
+        function factorial_re(num){
+            if(num == 1) {
+                console.log(num);
+                return num; 
+            }else {
+                console.log(num + " * " + (num -1));
+                return num * factorial_re(num-1);
+            }
+        } 
+    </script>
+
+
+    <h3>함수를 매개변수로 전달하기</h3>
+    <h4>익명함수 전달하기</h4>
+    <script>
+        function callFnTenTimes(otherFn){
+            alert("Hello");
+
+            for(var i=0; i< 10; i++){
+                otherFn(i);
+            }
+        }
+
+        // 익명함수로 실행하기 
+        callFnTenTimes(function(i){
+            console.log(i + '번째 실행 확인');
+        });
+
+
+
+
+    </script>
+
+    <h4>선언한 함수를 매개 변수로 전달하기</h4>
+    <button onclick="callJustFn(justFn);">실행 확인</button>
+    <script>
+        function justFn(i) {
+            switch(i){
+                case 1 : 
+                    alert("1");
+                    break;
+                case 2 :
+                    alert("2");
+                    break;
+                case 3 :
+                    alert("3");
+                    break;
+                case 4 :
+                    alert("4");
+                    break;
+                case 5 :
+                    alert("5");
+                    break;
+            }
+        }
+
+        function callJustFn(fn){
+            for(var i = 1; i < 6; i++){
+                fn(i); 
+
+            }
+            alert("고생하셨습니다~");
+        }
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

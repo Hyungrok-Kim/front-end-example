@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 연산자</title>
+    <style>
+        .area{
+            width : 400px;
+            height : 200px;
+            background : lightsalmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>자바스크립트 연산자</h1>
+    
+    <h3>=== , !== 연산자</h3>
+    <p>
+        값과 자료형까지 모두 일치하는 지 / 일치하지 않는지 <br>
+        비교하는 연산자 
+
+    </p>
+
+    <button onclick="opTest();">연산자 확인하기</button>
+
+    <div class="area" id="area1"></div>
+
+    <script>
+        function opTest(){
+            var num1 = 10, num2 = "10";
+            var div1 = document.getElementById('area1');
+
+            div1.innerHTML = "num1 == 10 : " + (num1 == 10) + "<br>";    
+            div1.innerHTML += "num2 == 10 : " + (num2 == 10) + "<br>";
+            div1.innerHTML += "num1 == '10' : " + (num1 == '10') + "<br>";
+            div1.innerHTML += "num2 == '10' : " + (num1 == '10') + "<br>";
+
+            div1.innerHTML += "<hr>";
+
+            
+            div1.innerHTML += "num1 === 10 : " + (num1 === 10) + "<br>";    
+            div1.innerHTML += "num2 === 10 : " + (num2 === 10) + "<br>";
+            div1.innerHTML += "num1 === '10' : " + (num1 === '10') + "<br>";
+            div1.innerHTML += "num2 === '10' : " + (num1 === '10') + "<br>";
+           //div1.innerHTML += "num1 == 10 : " + (num1 == 10) + "<br>";
+           // div1.innerHTML += "num1 == 10 : " + (num1 == 10) + "<br>";
+           // div1.innerHTML += "num1 == 10 : " + (num1 == 10) + "<br>";
+           // div1.innerHTML += "num1 == 10 : " + (num1 == 10) + "<br>";
+            //div1.innerHTML += "num1 == 10 : " + (num1 == 10) + "<br>";
+        }
+    </script>
+        <hr>
+
+        <h3>짧은 조건문 만들기</h3>
+        <p>
+            단항 조건식 : <br>
+            조건문을 단항으로 만들어 <br>
+            결과가 참이면 우측 항을 실행하고, 거짓이면 우측항을 실행하지 않는 <br>
+            간단한 조건문도 만들 수 있다,
+        </p>
+
+        <button onclick="testLogic();">실행 확인</button>
+        <script>
+            function testLogic(){
+                var num = parseInt(window.prompt('숫자를 입력하세요.'));
+                /*
+                if(num % 2 == 0){
+                    alert("짝수입니다.");
+
+                }else{
+                    alert("홀수입니다.");
+                }
+                */
+
+                // 단항 조건식 : 
+                // && : 좌측의 실행 결과가 참이면 우측 항을 실행한다.
+                // || : 좌측의 실행 결과가 거짓이면 우측 항을 실행한다.
+
+                num % 2 == 0 && alert("짝수입니다.");
+                num % 2 == 0 || alert("홀수입니다.");
+
+                console.log(num % 2 == 0 ? "짝수입니다." : "홀수입니다.");
+            }
+        </script>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="index.html">처음으로</a>
+</body>
+</html>

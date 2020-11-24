@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 내장 함수</title>
+    <style>
+        .area {
+            width : 400px;
+            height: 200px;
+            border : 3px solid chocolate;
+            background : lightgoldenrodyellow;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>자바스크립트 내장 함수</h1>
+
+    <h3>eval() 함수</h3>
+    <p>
+        스크립트 내부의 문자열을 코드로 변환하여 실행시키는 함수
+    </p>
+
+    숫자 1 : <input type="number"  id="num1"> <br>
+    숫자 2 : <input type="number"  id="num2"> <br>
+    <button onclick="test1();">실행 확인</button>
+
+    <div class="area" id="area1"></div>
+
+
+    <script>
+        function test1(){
+
+            // input 태그에 담겨있는 값을 .value로 꺼내올 경우 
+            // 자동으로 문자열로 변환된다. 따라서 본래의 숫자 형태로 
+            // 바꾸려면 형변환 함수를 사용해야 한다.
+            var num1 = parseInt(document.getElementById('num1').value);
+            var num2 = parseInt(document.getElementById('num2').value);
+
+            evalData = "var sum = num1 + num2;";
+            eval(evalData); //문자열로 된 소스코드를 실행
+            
+            var div1 = document.querySelector('#area1');
+
+            evalData = "div1.innerHTML += sum + '<br>'";
+
+            eval(evalData);
+        }
+    </script>
+
+    <hr>
+
+    <h3>Infinity / NaN </h3>
+    <p>
+        대부분의 프로그래밍 언어는 0으로 숫자를 나누면, <br>
+        자동으로 오류가 발생하고, 프로그램이 강제 종료된다. <br>
+        하지만 자바 스크립트는 0으로 숫자를 나누었을 때 Infinity라는 결과를 출력한다.<br>
+        또한 계산의 결과가 숫자가 아닐 경우 NaN(Not a Number) 라는 결과를 출력한다.
+    </p>
+
+    <button onclick="test2();">실행 확인</button>
+    <div class="area" id="area2"></div>
+    
+    <script>
+        function test2(){
+            var num1 = 10 / 0;
+            var num2 = 10 / 'a';
+
+            var div2 = document.getElementById('area2');
+            div2.innerHTML = "10 / 0 : " + num1 + '<br>';
+            div2.innerHTML += '10 / "a" : ' + num2 + '<br>';
+
+            // NaN / Infinity
+            div2.innerHTML += '10 / 0 ?' + isFinite(num1) + '<br>';
+            div2.innerHTML += '10 / "a"' + isNaN(num2) + '<br>';
+        }
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>
