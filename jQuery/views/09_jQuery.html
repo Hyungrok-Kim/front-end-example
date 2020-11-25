@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트</title>
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+    <style>
+        #test1{
+            width : 150px;
+            height : 100px;
+            background : lightyellow;
+            border : 3px solid salmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트</h1>
+
+    <h3>이벤트 관련 속성</h3>
+    <button onclick="test1(event);">실행 확인</button>
+    <script>
+        function test1(e){
+            // 이벤트 객체는 자바스크립트 내장객체이기 때문에 
+            // 안에 이벤트 관련 정보를 웹 브라우저가 관리하고 있음을 확인할 수 있다.
+            console.log(e);
+        }
+    </script>
+
+    <hr>
+
+    <h3>이벤트 연결 함수</h3>
+    <h4>
+        bind() / on() : 현재 존재하는 요소를 이벤트와 연결하는 함수 <br>
+        unbind() / off() : 현재 연결된 이벤트를 요소로부터 제거하는 함수 <br>
+        jQuery 3버전 부터 on/off 함수로 대체되었다.
+    </h4>
+
+    <div id="test1">기본 상태</div>
+    <script>
+        // bind & unbind 사용시 
+        /*
+        $(function(){
+            // 이벤트 연결(바인딩)
+            $('#test1').bind('mouseenter', function(){
+                $(this).css({
+                    'background' : 'orange',
+                    'color' : 'hotpink'
+                });
+            }).bind('mouseleave', function(){
+                $(this).css({
+                    'background' : 'white',
+                    'color' : 'blue'
+                });
+            });
+
+            // 이벤트 제거
+            $('#test1').bind('click', function(){
+                $(this).unbind('mouseenter').unbind('mouseleave');
+            });
+        });
+        */
+
+        $(function(){
+            $('#test1').on({
+                'mouseenter' : function() {
+                    $(this).css('background', 'yellow').text('마우스 올라감');
+                }, 'mouseleave' : function() {
+                    $(this).css('background', 'lightyellow').text('마우스 떠남');
+                }, 'click' : function(){
+                    $(this).off('mouseenter').off('mouseleave');
+                }
+            });
+        });
+    </script>
+
+    <br>
+
+    <h3>one() : 일회용 함수</h3>
+    <h1 id="testOne">
+        저는 일회용입니다.
+    </h1>
+
+    <script>
+        $(function(){
+            $('#testOne').one('click', function(){
+                alert('일회용 사용을 자제합시다.');
+            })
+        })
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리 선택자</title>
+    <!-- 제이쿼리 사용을 위한 라이브러리 등록 -->
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>제이쿼리 선택자</h1>
+    <h3>기본 선택자</h3>
+    <h4>전체 선택자 : *</h4>
+    <p>
+        현재 HTML 문서 안의 모든 태그를 선택하는 선택자
+    </p>
+    <script>
+        /*
+        $(function(){
+            $('*').css('color', 'orangered');
+        });
+        */
+
+    </script>
+
+    <hr>
+
+    <h4>태그 선택자</h4>
+
+    <h5>존 레식</h5>
+    <p>제이쿼리 창시자</p>
+    <h5>존 레전드</h5>
+    <p>가수</p>
+    <script>
+        // 하나의 태그 접근 시 
+        $(function(){
+            $('h5').css('color' , 'green');
+        });
+
+        // 여러 태그 접근 시
+        $(function(){
+          //  $('h5,p').css('background', 'yellow');
+        });
+    </script>
+
+    <hr>
+
+    <h4>클래스 선택자</h4>
+    
+    <h1 class="samp1"> 테스트용 태그 1 </h1>
+    <h1 class="samp1 samp2"> 테스트용 태그 2 </h1>
+    <h1 class="samp2"> 테스트용 태그 3 </h1>
+
+    <script>
+        $(function(){
+            // 하나의 클래스를 선택할 경우
+            $('.samp1').css('background', 'lightcoral');
+
+            // 2개 이상의 클래스를 선택할 경우 
+            $('.samp1.samp2').css('color', 'blue');
+
+            // 둘 중 하나라도 해당하는 클래스를 선택할 경우
+            $(' .samp1, .samp2').css('border', '3px solid red');
+        });
+    </script>
+
+
+    <h4>아이디 선택자</h4>
+
+    <h1> 홍길동 </h1>
+    <h1 id="samp3"> 이이</h1>
+    <h1> 이황 </h1>
+    
+    <script>
+        $(function(){
+            $('#samp3').css('background', 'hotpink');
+        });
+
+    </script>
+
+    <h3>자식 선택자와 후손 선택자</h3>   <!-- CSS와 동일함 -->
+    
+    <div>
+        <ul>
+            <li>
+                <h4>나는 후손입니다.</h4>
+            </li>
+            <li>
+                아몬드
+            </li>
+            <li>
+                마키다미아
+            </li>
+            <li>
+                캐슈넛
+            </li>
+            <li>
+                잣
+            </li>
+        </ul>
+        <h4>나는 자손입니다.</h4>
+    </div>
+
+    <script>
+        $(function(){
+            // 자식 선택자 
+            $('div>h4').css('color', 'blue');
+
+            // 후손 선택자
+            $('div h4').css('background', 'yellow');
+        });
+    </script>
+
+    <h4>속성 선택자</h4>
+    <p>
+        요소[속성] : 해당 속성을 가진 요소를 선택 <br>
+        ex) &lt; input type="text" &gt;   --&gt; $('input[type]'); <br>
+        요소[속성=속성값] : 해당 속성의 값을 가진 요소를 선택<br>
+        ex) div[name=daniel] : div 중 name 속성의 값이 'daniel'인 div<br>
+        요소[속성~=속성값] : 해당 속성의 특정 값을 단어로써 포함하는 요소<br>
+        ex) div class="hello whoami"  --&gt; $('div[class~=hello]');<br>
+        요소[속성 $= 속성값] : 속성 안의 값이 특정 단어로 끝나는 경우 <br>
+        ex) div class="prisonbox" --&gt; $('div[class&=box]'); <br>
+        요소[속성 *= 속성값] :  속성값 들 중 특정 값이 존재하면 선택 <br>
+        ex) div class="applefox" --&gt; $('div[class*=lef]'); 
+    </p>
+
+    <input type="text"> <br>
+    <input type="password" class="test1 test2"> <br>
+    <input type="radio"> <br>
+    <input type="checkbox" class="test3"> <br>
+    <input type="file">
+
+    <script>
+        $(function(){
+            $('input[type=text]').val('강강 수월래'); // val은 js의 value
+            // .val() : 값을 가져오는 역할 / .val('값') : 값을 바꾸는 역할
+            $('input[class~=test1]').val(1234567890);
+            $('input[type*=rad]').attr('checked', true);
+            $('input[type$=box]').attr('checked', true);
+
+            // 단일 속성 적용
+            $('input[class*=test]').css('background', 'navy');
+            $('input[class*=test]').css('color', 'white');
+
+            // 여러 속성 적용
+            $('input[class*=test]').css('background', 'tomato').css('color', 'green');
+
+            // Json 형식 속성 적용
+            // ** JSON : (JavaScript Object Notation)
+            //      자바 스크립트 객체를 { } 형식으로 표현한 방식
+
+            $('input[class*=test]').css({
+                'background' : 'yellow', 
+                'color' : 'navy'
+            });
+        });
+    </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

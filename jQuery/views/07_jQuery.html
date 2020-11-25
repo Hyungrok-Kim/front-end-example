@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>태그 내용 함수</title>
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>태그 내용 함수</h1>
+
+    <h3>html() / text()</h3>
+    <h3>html() : </h3>
+    <p>
+        선택된 요소의 내용 부분을 HTML로 가져오거나 변경하는 함수<br>
+        선택한 요소 안의 내용으로 HTML 태그로 인식하여 가져오거나, <br>
+        특정 문자열로 HTML을 작성하여 내용 부분을 변경할 수 있다.
+    </p>
+
+    <h2 class="test1">
+        <a href="https://www.naver.com">네이버로 이동하기</a>
+    </h2>
+    <h2 class="test2">
+
+    </h2>
+
+    <script>
+        $(function(){
+            var temp = $('.test1').html();
+            console.log(temp);
+
+            $('.test2').html(temp);
+
+            // 일반 문자열로 만든 HTML코드도 .html() 함수를 통해 추가할 수 있다.
+            var myLink = "<a href='https://www.naver.com' target='_blank'> 네이버 이동 2 </a>";
+        
+            $('.test2').html(myLink);
+            // 위의 코드에서 myLink가 test2안의 태그 안으로 들어가기 때문에 아래 코드가 실행 됨    
+            $('.test2 a').attr('target', '_self');
+        })
+    </script>
+
+    <hr>
+
+    <h3>text() : </h3>
+    <p>
+        선택된 요소의 내용을 문자열만 가져오거나 설정하는 함수 <br>
+        만약 내부에 HTML 코드가 들어있더라도 그 안의 일반 문자만 가져온다.
+    </p>
+
+    <h1 id="test3">
+        <a href="">구글로 이동하기!</a>
+    </h1>
+    <h1 id="test4">
+
+    </h1>
+
+    <script>
+        $(function(){
+            var temp = $('#test3').text();
+
+            console.log(temp);
+
+            $('#test4').text(temp);
+
+            // 만약 HTML 태그를 문자열로 받는다면?
+            var str = "<h3><span>안녕하세요 </span></h3>";
+
+            $('#test4').text(str);
+        });
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

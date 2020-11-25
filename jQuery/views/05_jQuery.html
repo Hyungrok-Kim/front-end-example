@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>순회 탐색 함수</title>
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+    <style>
+    div[class*=wrap] * {
+        border : 1px solid gray;
+        display : block;
+        padding : 10px;
+        margin : 15px;
+        color : gray;
+    }
+    </style>
+</head>
+<body>
+    <h1>순회 탐색 함수</h1>
+
+    <h3>조상(Ancestors) 탐색 함수</h3>
+    <p>현재 선택한 요소보다 상위의 요소 찾기</p>
+
+    <div class="wrap1">
+        <div style="width: 500px;"> div (great-grandparent)
+            <ul> ul (grandparent)
+                <li> li (parent)
+                    <span>
+                        span
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width: 500px;"> div(grandparent)
+            <p> p (parent)
+                <span>
+                    span
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            // 선택한 요소 바로 위의(상위) 요소 선택하기 
+            $('span:eq(0)').parent().css({
+                'color' : 'red',
+                'border' : '2px solid red'
+            });
+
+            // 선택한 요소의 모든 상위 요소 선택하기 
+            // $('span:eq(0)').parent().parent().parent();
+            // $('span:eq(0)').parents(); 이렇게 지정하면 html 태그까지 싹 다 포함됨.
+            $('span:eq(0)').parents('ul').css({
+                'color' : 'blue',
+                'border' : '2px solid blue'
+            })
+
+            $('span:eq(1)').parentsUntil('.wrap1').css({
+                'color' : 'yellowgreen',
+                'border' : '2px solid yellowgreen'
+            });
+        })
+    </script>
+
+<hr>
+
+
+    <h3>후손(Descendants) 요소 선택 함수</h3>
+    <p>선택한 요소의 하위(후손) 요소 선택하기</p>
+
+    <div class="wrap2">
+        <div style="width : 500px"> div (child)
+            <ul> ul (grandchild)
+                <li> li (great-grandchild)
+                    <span>
+                        span
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div style="width:500px"> div (child)
+            <p> p (grandchild)
+                <span>
+                    span
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 선택한 요소의 바로 하위(자식) 요소 선택하기
+        $('.wrap2').children().css({
+            'color' : 'blue',
+            'border' : '2px solid blue'
+        });
+        // 선택 요소의 모든 후손 요소 선택 
+        // $('.wrap2').children().children().children() ...
+        $('.wrap2').find('ul').css({
+            'color' : 'yellowgreen',
+            'border' : '2px solid yellow'
+        });
+    </script>
+
+    <hr>
+
+    <h3>
+        인접한 동위요소(Siblings) 선택 
+    </h3>
+
+    <div class="wrap3" style="border : 2px solid black;">
+        div(parent)
+        <p>나는 첫째 p태그입니다.</p>
+        <span>나는 둘째 span입니다.</span>
+        <h2>나는 셋째 h2입니다.</h2>
+       <h3>나는 넷째 h3입니다.</h3>
+        <p>나는 막내 p입니다.</p>
+    </div>
+    <script>
+        // 1. 앞 뒤 모든 범위에서 선택하기
+        // 선택한 요소의 동위요소 선택
+        $('h2').siblings().css({
+            'color' : 'red',
+            'border' : '2px solid red'
+        });
+
+        // 특정 요소를 선택할 때
+        $('h2').siblings('p').css({
+            'color' : 'orange',
+            'border' : '2px solid orange'
+        });
+
+        // 2. 현재 선택한 요소의 앞/뒤 동위요소 선택하기
+
+        // 바로 앞의 요소 선택
+        $('h2').prev().css('background' , 'yellow');
+
+        // 앞의 모든 요소 선택
+        $('h2').prevAll().css('background', 'hotpink');
+
+        // 특정 요소 전까지의 앞의 모든 요소 
+        $('h2').prevUntil('p').css('background', 'lightcyan');
+
+        // 3. 현재 선택한 요소 뒤의 요소 선택하기
+
+        // 바로 뒤의 요소 선택
+        $('h2').next().css({
+            'color' : 'blue',
+            'border' : '2px solid blue'
+        });
+
+        // 뒤의 모든 요소 선택
+        $('h2').nextAll().css('background','wheat');
+
+        // 선택한 요소부터 특정 요소 전까지 
+        $('h2').nextUntil('p').css('border', '2px solid darkgreen');
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로 돌아가기</a>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

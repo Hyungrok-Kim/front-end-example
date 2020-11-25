@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리 개요</title>
+    <!-- CDN 방식으로 제이쿼리 3버전 , 외부에서 인터넷으로 연결하기 -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- 장점 : 소스 코드를 별도로 저장할 필요가 없다. 즉 저장 공간에 여유가 남는다. 
+         단점 : 인터넷이 없으면 망함. 
+                소스 코드를 제공하는 사이트가 사라지거나 버전이 바뀌면...?
+                즉 소스 코드를 제공하는 사이트에 대한 의존도가 올라감.        
+    -->
+
+    <!-- 직접 파일을 다운로드 받는 방법 -->
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+    <!--
+        Uncompressed - 개발자 전용
+        일반 JS 파일 : 개발자나 사용하는 사람들이 보기 쉽도록
+                          주석, 들여쓰기, 코드 정렬 등을 사용해
+                          가시성(코드 읽기 좋은 정도)을 유지한 파일
+        Compressed - 배포 전용 ( 고객 전용 )
+        min JS 파일 : 소스 코드의 주석, 들여쓰기, 코드 정렬, 변수명 등을
+                         최소화 및 간소화하여 네트워크 상의 데이터 전달 속도를
+                         높인 코드 난독화 파일
+    -->
+</head>
+<body>
+    <h1>제이쿼리 개요</h1>
+
+    <h3>제이 쿼리란?</h3>
+    <p>
+        존 레식에 의해 개발된 JS 경량화(코드가 간결해짐, 속도가 빠름, 구현 생산성이 높음) <br>
+        스크립트 라이브러리 <br>
+        복잡하고 길었던 자바 스크립트 구문들을 보다 쉽게 사용하도록 만들어졌다.
+
+        <br><br>
+
+        -- JQuery의 장점 -- <br>
+        1. DOM과 관련된 스크립트를 짧고 쉽게 구현하여 구현속도(생산성)을 향상시킨다. <br>
+        2. ajax(비동기 통신), 이벤트 처리, 이펙트 등을 폭넓게 지원한다. <br>
+        3. JQuery와 관련된 확장 플러그인, 오픈 API 를 보다 더, 다양하게 지원한다.
+
+        <br><br>
+
+        -- JQuery 단점 -- <br>
+        1. JQuery 에 익숙해지면 JS에 약해진다. (난, 더이상 JQuery없이는 살 수 없는 몸이 되었어) <br>
+        2. 관련 확장 플러그인을 쓰고자 할 때 JQuery 버전이 달라 충돌이 발생할 수도 있다.<br>
+        3. JQuery 자체도 자바스크립트 안에서 돌아가기 때문에, 순수 자바 스크립트로 직접 <br>
+           구현하는 것보다 속도가 느릴 수 밖에 없다.
+    </p>
+
+    <hr>
+
+    <h3>제이쿼리 연결하기</h3>
+    <p id="p1">
+        1. jQuery 소스 코드를 제공하는 사이트에서 <br>
+           소스코드를 인터넷으로 연결하는 방법 (CDN)<br>
+           ** CDN : Content Delivery Network <br>
+        2. jQuery 사이트에서 소스 코드를 직접 다운로드 받는 방법 
+
+    </p>
+
+    <script>
+        // JS 의 경우 
+        // ducument.getElementById('p1').style.backgroundColor = 'khaki';
+        // document.querySelector('#p1').style.backgroundColor = 'red';
+
+        // jQuery의 경우
+        /*
+        $('#p1').css('background', 'khaki');
+        $('#p1').css('color', 'navy');
+        */
+
+        $('#p1').css({
+            'background' : 'lightgreen',
+            'color' : 'orangered'
+        });
+    </script>
+
+    <hr>
+
+    <h3>$(document).ready()</h3>
+    <p id="p2">
+        현재 웹 문서를 읽은 후(onload) ready() 함수를 실행하여 <br>
+        body.onload 처럼 즉석 실행 함수를 구현할 수 있다.
+    </p>
+
+    <script>
+        // JS 
+        // document.onload = function(){ . . . }
+        
+        // jQuery 방식 
+        // jQuery(document).ready(function(){
+        //     alert("네, 제가 바로 그 제이쿼리입니다.");
+        // });
+
+        // 다이어트 1차 
+        /*
+        $(document).ready(function(){
+            alert("다이어트 한 제이쿼리입니다.");
+        });
+        */
+
+        // 다이어트 3버전
+        $(function(){
+            alert("와...나 이제 뺄 살도 없다.");
+        });
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

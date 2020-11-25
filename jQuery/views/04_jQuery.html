@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   
+    <title>입력 양식 필터 선택자</title>
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>입력 양식 필터 선택자</h1>
+
+    <h3>체크박스 상태 선택자</h3>
+    영화 장르 : 
+        <!-- input:checkbox[name=genre]*5 -->
+        <input type="checkbox" name="genre" id="roco">로스트 코스트코
+        <input type="checkbox" name="genre" id="family">가족
+        <input type="checkbox" name="genre" id="horror">호러
+        <input type="checkbox" name="genre" id="sf">SF
+        <input type="checkbox" name="genre" id="action">액션
+
+
+<script>
+    // onchange : 값이 변경될 때를 감지하는 이벤트 리스너 
+    $('input:checkbox').change(changeGenre);
+    
+    function changeGenre(){
+        // $(this) : 현재 함수를 실행시킨 태그를 제이쿼리 객체로 만든 것 
+        // -- 이렇게 제이쿼리화 하면 제이쿼리 함수를 사용할 수 있게 된다.
+        console.log($(this).attr('checked'));   // undefined로 나옴. checked는 속성 x 속성값임
+        console.log($(this).prop('checked'));
+    
+        // id, class, name 속성처럼 일반 값이 속성값으로 들어갈 수 있는 것 
+        // attr() 함수로 접근하고, 
+        // checked, disabled 같이 값이 true / false 로 나눠지는 속성은 
+        // prop() 함수로 접근한다.
+        
+        if($(this).prop('checked')){
+            $(this).css({
+                'width' : '50px',
+                'height' : '50px'
+            });
+        } else{
+            $(this).css({
+                'width' : '15px',
+                'height' : '15px'
+            });
+        }
+    }
+    </script>
+
+    <h3>select와 option 태그의 상태 선택자</h3>
+
+    이메일 입력 : <input type="text" id="email" size="6"> &nbsp;
+                  <select id="domain">
+                      <option value="@naver.com">네이버</option>
+                      <option value="@gmail.com">구글</option>
+                      <option value="@daum.net">다음</option>
+                  </select>
+                  <br><br>
+    입력한 이메일 : <input type="text" id="result" readonly>
+    
+    <script>
+        // 문서가 로드 되자마자 실행시키기
+        function getEmail(){
+            var emailId = $('#email').val();
+            var domain = $('option:selected').val();
+        
+            console.log(emailId + domain);
+
+            $('#result').val(emailId + domain);
+        }
+
+        $(function(){
+            // <--처음 로드 시 처리할 내용이 많을 경우
+
+        });
+        $(getEmail); // 문서 로드 시 즉시 실행의 의미
+
+        $('#domain').change(getEmail);
+    </script>
+
+    <h3>input 상태에 따른 선택자</h3>
+    텍스트박스 : <input type="text"> <br>
+    비활성화 텍스트 박스 : <input type="text" disabled> <br>
+    활성화 버튼 : <input type="button" value="회원가입"> <br>
+    비활성화 버튼 : <input type="button" value="회원 탈퇴" disabled> <br> 
+
+    <script>
+        $('input:enabled').css('background', 'lightgreen');
+        $('input:disabled').css('background', 'lightpink');
+
+
+    </script>
+
+    <h3>순서 관련 선택자</h3>
+    <table>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>취미</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>10</td>
+            <td>의적질</td>
+        </tr>
+        <tr>
+            <td>김수로</td>
+            <td>40</td>
+            <td>요가</td>
+        </tr>
+        <tr>
+            <td>김유신</td>
+            <td>30</td>
+            <td>독서</td>
+        </tr>
+        <tr>
+            <td>박문수</td>
+            <td>20</td>
+            <td>음악 감상</td>
+        </tr>
+        <tr>
+            <td colspan="2"> 총원 : </td>
+            <td>2 명</td>
+        </tr>
+    </table>
+
+    <script>
+        $('tr:first').css('background', 'black').css('color' ,'white');
+        $('tr:last').css({
+            'background' : 'yellow',    // 속성인 background에는 '' 안붙여도 됨.
+            'color' : 'navy'
+        });
+
+        $('tr:odd').css('background', 'plum'); // 제로베이스드라 0부터 시작함. 그래서 맨 처음이 plum
+        $('tr:even').css('background', 'lightgreen');
+        
+        // 특정 순번 n번째에 위치한 child 선택하기
+        $('table tr:eq(1)').css('color', 'purple');
+        $('table tr:ntn-child(0)').css('color', 'black');
+        // : ntn-child() 2n, 2n-1 등의 수열로써 선택도 가능하다.
+    </script>
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로 돌아가기</a>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    </body>
+</html>

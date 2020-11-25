@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>연결 가능 이벤트</title>
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+    <style>
+        .outer {
+            width : 200px;
+            height : 200px;
+            background : orange;
+            padding : 50px;
+        }
+
+        .inner {
+            width : 100%;
+            height : 100%;
+            background : red;
+        }
+    </style>
+</head>
+<body>
+    <h1>연결 가능 이벤트</h1>
+    
+    <h3>마우스 관련 이벤트</h3>
+
+    <p>
+        mouseenter : 선택한 대상에 마우스를 올리면 발생 <br>
+        mouseleave : 선택한 대상에서 마우스가 벗어날 때 발생<br>
+        mouseout : 선택한 대상에서 마우스가 완전히 벗어나면 발생 <br>
+        mouseover : 마우스의 위치가 요소 위에 존재하면 발생
+    </p>
+
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <script>
+        $(function(){
+            // $('.outer').mouseenter( function() { . . . });
+            $('.outer').on('mouseenter', function(){
+                console.log(" >> ENTER << ");
+            });
+
+            $('.outer').on('mouseleave', function(){
+                console.log(" ~~ LEAVE ~~");
+            });
+
+            $('.outer').on('mouseout', function(){
+                console.log(" ! ! OUT ! ! ");
+            });
+
+            $('.outer').on('mouseover', function(){
+                console.log(" - - OVER - - ");
+            });
+        })
+    </script>
+
+    <h3>hover() 함수</h3>
+    <p>
+        mouseenter + mouseleave 
+    </p>
+    <h1 id="test1"> hover 테스트</h1>
+
+    <script>
+        $(function(){
+            $('#test1').hover(function(){ $(this).css('background' , 'yellow')},
+                              function(){ $(this).css('background', 'white') }
+                              );
+        });
+    </script>
+
+    <hr>
+
+    <h3>키보드 관련 이벤트</h3>
+    <p>
+        keydown : 키가 눌렸을 때<br>
+        keypress : 키가 눌려지고 있을 때<br>
+        keyup : 키에서 손을 떼었을 때
+    </p>
+
+    <h4>동적으로 글자 수 세기</h4>
+    
+    <div>
+        <h1 id="counter">100</h1>
+        <textarea  cols="70" rows="4"></textarea>
+    </div>
+
+
+    <script>
+        $(function(){
+            $('textarea').on('keyup', function(){
+                var inputLength = $(this).val().length; // 입력된 글자 수
+                var remain = 100 -inputLength           // 남은 글자 수
+
+                $('#counter').html(remain);
+
+                // 남은 글자가 음수가 되었을 땐 숫자를 빨간색으로,
+                // 남은 글자가 0이 되었을 땐 숫자를 파란색으로 표시하기
+
+                if(remain == 0){
+                    $('#counter').css('color', 'blue');
+                } else if(remain < 0){
+                    $('#counter').css('color' , 'red');
+                }else{
+                    $('#counter').css('color', 'black');
+                }
+            });
+        })
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html">처음으로</a>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>입력 양식 선택자</title>
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>입력 양식 선택자</h1>
+    <p>
+        input 태그의 속성 중 type 속성에 따라 <br>
+        타입 속성 선택자도 제공된다.
+    </p>
+
+    텍스트상자 : <input type="text"> <br>
+    버튼 : <input type="button" value="버튼"> <br>
+
+    체크박스 : <input type="checkbox" > <br>
+    파일 선택 : <input type="file"> <br>
+    이미지 : <input type="image" src="../resources/images/panda.gif" alt="귀요미 판다"> <br>
+
+    <script>
+        $(function(){
+            $('input:text').css('background', 'lightgreen');
+        
+            $('input:button').attr('value', '짱버튼').css({
+                'width' :  '100px',
+                'height' : '100px',
+
+            });
+            $('input:checkbox').attr('checked', true).css({
+                        'width' : '50px',
+                        'height' : '50px'
+            });
+
+            $('input:file').css('background' , 'yellow');
+                
+            $('input:image').mouseenter(function(){
+                $(this).attr('src','../resources/images/pangguin.gif');
+            });
+
+            $('input:image').mouseout(function(){
+                $(this).attr('src', '../resources/images/panda.gif');
+            });
+        });
+    </script>
+</body>
+</html>

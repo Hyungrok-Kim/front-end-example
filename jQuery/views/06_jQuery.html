@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리 함수</title>
+    <!--
+         "$ is not defined" : $는 jQuery 
+        즉 제이쿼리가 선언되지 않았다는 오류뜨면 script 확인
+    -->
+    <script src="../resources/js/jquery-3.5.1.min.js"></script>
+    <style>
+        .high_light_0 {
+            background : red;
+            color: white;
+        }
+
+        .high_light_1 {
+            background : orange;
+            color: black;
+        }
+
+        .high_light_2 {
+            background : green;
+            color: white;
+        }
+
+        .high_light_3 {
+            background : blue;
+            color: white;
+        }
+
+        .high_light_4 {
+            background : purple;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>제이쿼리 함수</h1>
+    
+    <h3>$.each()</h3>
+    <p>      <!-- 객체 또는 배열에서-->
+        $.each(객체(배열), function(index, item){ . . . }); <br>
+        index : 배열에 해당하는 반복 순번, 특정 객체의 경우 해당 객체의 각 키들<br>
+        item : 해당 순번에 맞는 값
+    </p>
+
+    <div id="wrap1"></div>
+
+    <script>
+        $(function(){
+            var arr = [
+                { name : '네이버' , address : 'https://www.naver.com'},
+                { name : '구글', address : 'https://www.google.co.kr'},
+                { name : '다음', address : 'https://www.daum.net'}
+
+            ];
+                               //index가 바뀌면 for문처럼 실행함
+            $.each(arr, function(index, item){
+                var outHTML = "";
+
+                console.log(index + " : " + item);
+                console.log(item);
+
+                outHTML += '<a href="' + item.address + '">'; // <a href="https://www.naver.com">
+                outHTML += '<span>' + item.name + '</span>'; // <span>네이버</span>
+                outHTML += '</a> &nbsp; &nbsp; &nbsp;';
+
+                // text() , html()
+                // text() : 해당 태그 안의 문자열을 가져오는 함수
+                // text('내용') : 해당 태그 안의 내용을 현재 '내용'으로 바꾸는 함수
+                // text() : getter / text(값) : setter
+
+                // html() : 해당 태그 안의 소스코드를 HTML 그대로 가져오는 함수
+                // html( '내용' ) : 해당 태그의 안에 특정 HTML 내용으로 변경하는 함수
+                // html() : getter / html(값) : setter
+
+                $('#wrap1').html($('#wrap1').html() + outHTML); 
+                });
+        });
+    </script>
+
+    <h3>$(선택자).each() 함수</h3>
+    <p>
+        사용형식 : <br>
+        $(선택자).each(function(index.item){ . . . });
+
+    </p>
+
+    <div id="wrap2">
+        <h1>item</h1>
+        <h1>item</h1>
+        <h1>item</h1>
+        <h1>item</h1>
+        <h1 id="sw">item</h1>
+    </div>
+
+    <script>$(function(){
+        console.log($('#wrap2').children());
+
+        $('#wrap2 h1').each(function(index, item){
+            $(this).addClass('high_light_' + index);
+
+            // removeClass로 삭제도 가능!
+        });
+
+        $('#sw').click(function(){
+            $(this).toggleClass('high_light_4');
+        });
+     
+    });
+    
+    
+    </script>
+
+    <hr>
+    <h3>$.conflict()</h3>
+    <p>
+        다른 버전의 제이쿼리 사용, 다른 라이브러리에서 '$' 기호를 사용하여,
+        $를 다른 기호로 바꿔야 하는 경우 
+
+    </p>
+
+    <h1 id="conflictChk">확인 문구</h1>
+    <script>
+        var jq = $.noConflict();
+
+        // ---- 이 밑으로는 $ 가 아닌 jq를 써야 한다. ----// 
+        // $(function(){ . . . })
+        jq(function(){
+            jq('#conflictChk').css('color','green');
+        });
+    </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="index.html"></a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>
